@@ -430,6 +430,16 @@
       "sort": "1",
       "showDemo": true,
       "author": "iris"
+    },
+    {
+      "version": "1.0.0",
+      "name": "Uploader",
+      "chnName": "文件上传按钮",
+      "desc": "用于文件上传",
+      "type": "component",
+      "sort": "5",
+      "showDemo": true,
+      "author": "林如风"
     }
   ]
 }
