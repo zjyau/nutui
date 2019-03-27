@@ -14,7 +14,7 @@
         :name="name"
         :url="url"
         :xhrState ="stateNum"      
-         @success="sucess"        
+         @success="sucess1"        
         :className="'block'"
         > 上传
         </nut-uploader>  

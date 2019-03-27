@@ -29,6 +29,17 @@ export default {
   }
 
 ```
+## 插入nut-button
+```html
+<nut-uploader
+  :name="name"
+  :url="url"
+  :xhrState ="stateNum"      
+    @success="sucess1"        
+  >
+  <nut-button small>上传</nut-button>
+</nut-uploader>   
+```
 
 ## 自定义样式
 
@@ -57,8 +68,9 @@ export default {
     :xhrState ="stateNum"      
     @success="sucess"  
     @progress="progress"    
-    > 上传 <span v-if="progressNum">{{progressNum}}%</span>
+    > 上传
 </nut-uploader>  
+<nut-progress class="progress-style" :percentage="progressNum" :showText="false" strokeWidth="24"/>
 ```
 
 
@@ -72,9 +84,10 @@ export default {
 | name | input name的名称 | String | ""
 | url | 上传服务器的地址 | String | -
 | isPreview | 是否需要预览 | Boolean | false
+| clearInput | 是否需要清空input内容支持重复上传同一个文件 | Boolean | false
 | maxSize | 可以设定最大上传文件的大小 | Number | 5242880
 | acceptType | 可以上传文件的类型 | Array | ['image/jpeg', 'image/png', 'image/gif', 'image/bmp']
-| attach | 记录上传过的文件 | Object | {}
+| attach | 附加上传的信息 | Object | {}
 | xhrState | 网络返回的状态值默认200可以自己修改 | Number | 200
 | className | 自定义样式名称 | String | ""
 
@@ -82,9 +95,9 @@ export default {
 
 | 字段 | 说明 | 类型 | 默认值
 |----- | ----- | ----- | ----- 
-| @start | 文件上传开始 | function | -
-| @progress | 文件上传的进度 | function | -
-| @preview | isPreview如果为true时候可以获文件的信息 | function | -
-| @success | 上传成功后的回调函数 | function | -
-| @failure | 上传失败的回调函数 | function | -
-| @showMsg | 上传前文件类型等不合法信息的提示函数 | function | -
+| start | 文件上传开始 | function | -
+| progress | 文件上传的进度 | function | -
+| preview | isPreview如果为true时候可以获文件的信息 | function | -
+| success | 上传成功后的回调函数 | function | -
+| failure | 上传失败的回调函数 | function | -
+| showMsg | 上传前文件类型等不合法信息的提示函数 | function | -
