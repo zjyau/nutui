@@ -19,7 +19,7 @@
         :className="'block'"
         > 上传
         </nut-uploader>  
-        <h4>带进度的上传按钮结合进度条组件展示</h4>  
+        <h4>带进度的上传按钮结合进度条组件展示zip文件上传</h4>  
 
         <nut-uploader
         :name="name"
@@ -150,6 +150,7 @@ export default {
     border-radius: 6px;
     position: relative;
     border:1px solid #f2f2f2;
+    line-height: 100px;
     .img-box{
       margin-top:0;
     }
@@ -177,9 +178,9 @@ export default {
 }
    .img-box{
      margin-top:20px;
-    width: 100px;
-    height: 100px;
+    width: 100px;    
     border-radius: 6px;
+    vertical-align: middle;
   }
   .block{
     display: block;
