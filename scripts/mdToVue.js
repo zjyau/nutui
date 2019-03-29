@@ -141,17 +141,21 @@ function readDirRecur(fileSrc, callback) {
 function fileReadStar(filedir,callback){
     fs.readFile(filedir, 'utf-8', (err, data) => {
         let html = marked(data); 
+        let mdfileName = '';
         let mdName = "";
         let opensName = filedir.replace(/(^.*\/|.md)/g,"");                    
         //如果是doc文件以前缀 为
         if (opensName === 'doc') {
             mdName = filedir.replace(/(^.*packages\/|\/doc\.md)/g,'');
+            mdfileName = mdName+'.vue';
         } else {
             //如果不是doc命名的文件
             mdName = opensName;
+            mdfileName = mdName+'.vue';
         } 
         callback({
             mdName:mdName,
+            mdfileName:mdfileName,
             html:html
         })   
     });
@@ -167,32 +171,35 @@ function ismd(src,hasobj,callback){
     //判断文件类型是否是md文件    
     let filedir = src;  
     //return new Promise((resolve,reject)=>{
-    if (/.md$/.test(filedir)) {
-        if(hasobj.fileText){
-            let hasHObjs = hasobj;
-            hashElement(filedir).then(res=>{                
-                if(hasHObjs.fileText.indexOf(res.hash)==-1){
-                    //执行写入
-                    //同时更新缓存
-                    fs.writeFileSync(hasHObjs.cachePath,
-                        hasHObjs.fileText+'|'+res.hash
-                        ,'utf-8');
+    // if (/.md$/.test(filedir)) {
+    //     if(hasobj.fileText){
+    //         let hasHObjs = hasobj;
+    //         hashElement(filedir).then(res=>{                
+    //             if(hasHObjs.fileText.indexOf(res.hash)==-1){
+    //                 //执行写入
+    //                 //同时更新缓存
+    //                 fs.writeFileSync(hasHObjs.cachePath,
+    //                     hasHObjs.fileText+'|'+res.hash
+    //                     ,'utf-8');
 
-                    fileReadStar(filedir,(obj)=>{
-                        callback(obj)
-                    })
-                }
-            })
-        }else{
-            //如果没有hash 直接做下一部
-            fileReadStar(filedir,(obj)=>{
-                callback(obj)
-            })
-        }
-        //对md文件存储 hash       
-        //文件读取
+    //                 fileReadStar(filedir,(obj)=>{
+    //                     callback(obj)
+    //                 })
+    //             }
+    //         })
+    //     }else{
+    //         //如果没有hash 直接做下一部
+    //         fileReadStar(filedir,(obj)=>{
+    //             callback(obj)
+    //         })
+    //     }
+    //     //对md文件存储 hash       
+    //     //文件读取
         
-    }
+    // }
+    fileReadStar(filedir,(obj)=>{
+        callback(obj)
+    })
 }
 /**
  * 检查文件是否存折
@@ -242,7 +249,8 @@ function comparehash(path,callback){
         hashElement(path, {
             folders: { exclude: ['.*', 'node_modules', 'test_coverage'] },
             files: { include: ['*.md'],exclude:['*.js','*.vue','*.scss','__test__'] }
-        }).then(hash => {           
+        }).then(hash => {        
+            console.log(hash)   
             if(fileText){
                 //如果有内容
                 callback({
@@ -297,7 +305,7 @@ function fileDisplay(param) {
             res.map((item,index)=>{   //数组化文件   
                 ismd(item.path,hashMsgObj,res=>{
                     //res md文件处理结果           
-                    createdFile(param.output + res.mdName + '.vue', res.html, param)
+                    createdFile(param.output + res.mdfileName, res.html, param)
                 })
             })     
         })
@@ -309,19 +317,26 @@ function fileDisplay(param) {
  * @outPath {String} 输出的文件目录 
  */
 function ishasOutFile(outPath,callback){
-    fs.stat(outPath,(err,res)=>{       
-        if(err){
-            fs.mkdir(outPath,err=>{
+    fs.rmdir(outPath,(err)=>{
+        if(!err){
+            fs.stat(outPath,(err,res)=>{       
                 if(err){
-                    console.log(err)
-                }else{                  
+                    fs.mkdir(outPath,err=>{
+                        if(err){
+                            console.log(err)
+                        }else{                  
+                            callback()
+                        }               
+                    })
+                }else{
                     callback()
-                }               
+                }
             })
         }else{
-            callback()
+            console.log('删除文件失败，请手动删除')
         }
     })
+    
 }
 /**
  * 
