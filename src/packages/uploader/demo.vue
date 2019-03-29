@@ -47,7 +47,9 @@
         > 上传
         </nut-uploader> 
         <transition name="fade" >
+          <div class="img-outbox">
           <img class="img-box" v-if="previewImg" :src="previewImg" alt="">
+          </div>
         </transition>
 
         <h4>上传前预览+上传进度+错误类型提示</h4>  
