@@ -5,7 +5,8 @@
         :name="name"
         :url="url"
         :xhrState ="stateNum"      
-         @success="sucess1"        
+         @success="sucess1"
+         @fail="fail1"        
         >
         <nut-button small>上传</nut-button>
         </nut-uploader>   
@@ -106,7 +107,11 @@ export default {
       },
       sucess1(file,res){
           console.log(file,res)
-        this.$toast.text('上传成功', { duration:2000 });
+        this.$toast.success('上传成功', { duration:2000 });
+      },
+      fail1(file,res){
+          console.log(file,res)
+        this.$toast.fail('上传成功', { duration:2000 });
       },
       progress(ile, loaded, total){
         this.progressNum = parseInt(100*loaded/total)
