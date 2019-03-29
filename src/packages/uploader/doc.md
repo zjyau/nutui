@@ -72,6 +72,35 @@ export default {
 </nut-uploader>  
 <nut-progress class="progress-style" :percentage="progressNum" :showText="false" strokeWidth="24"/>
 ```
+## 上传前预览+上传进度+错误类型提示
+```html
+<nut-uploader
+        :name="name"
+        :url="url"
+        :xhrState ="stateNum"      
+         @success="sucess"        
+        :className="'block'"
+        :isPreview="true"      
+        @preview="preview2"
+        @progress="progress2"
+        @showMsg="showMsgs"
+        > 上传
+</nut-uploader> 
+<transition name="fade" >
+  <div class="img-outbox">
+    <img class="img-box" v-if="previewImg2" :src="previewImg2" alt="">
+    <svg v-if="upOver" t="1553591410013" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1985" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+      <path d="M511.950005 512.049995m-447.956254 0a447.956254 447.956254 0 1 0 895.912508 0 447.956254 447.956254 0 1 0-895.912508 0Z" fill="#20B759" p-id="1986"></path>
+      <path d="M458.95518 649.636559L289.271751 479.95313c-11.698858-11.698858-30.697002-11.698858-42.39586 0s-11.698858 30.697002 0 42.395859l169.683429 169.68343c11.698858 11.698858 30.697002 11.698858 42.39586 0 11.798848-11.598867 11.798848-30.597012 0-42.39586z" fill="#FFFFFF" p-id="1987"></path>
+      <path d="M777.62406 332.267552c-11.698858-11.698858-30.697002-11.698858-42.39586 0L424.158578 643.437164c-11.698858 11.698858-11.698858 30.697002 0 42.39586s30.697002 11.698858 42.39586 0l311.069622-311.069622c11.798848-11.798848 11.798848-30.796992 0-42.49585z" fill="#FFFFFF" p-id="1988"></path>
+    </svg>
+      <div class="pr" v-if="progressNum2">
+      {{progressNum2}}%
+    </div>
+  </div>          
+</transition>
+```
+
 
 
 ## 建议
