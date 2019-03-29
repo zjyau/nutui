@@ -161,64 +161,11 @@ function fileReadStar(filedir,callback){
     });
 }
 /**
- * 判断是否位md文件 并进行操作
- * 判断文件是否有改动
- * @src {string} 打开的文件目录
- * @hasobj {obj} hash对象
- * @callback {fn} 回调函数
- */
-function ismd(src,hasobj,callback){
-    //判断文件类型是否是md文件    
-    let filedir = src;  
-    //return new Promise((resolve,reject)=>{
-    // if (/.md$/.test(filedir)) {
-    //     if(hasobj.fileText){
-    //         let hasHObjs = hasobj;
-    //         hashElement(filedir).then(res=>{                
-    //             if(hasHObjs.fileText.indexOf(res.hash)==-1){
-    //                 //执行写入
-    //                 //同时更新缓存
-    //                 fs.writeFileSync(hasHObjs.cachePath,
-    //                     hasHObjs.fileText+'|'+res.hash
-    //                     ,'utf-8');
-
-    //                 fileReadStar(filedir,(obj)=>{
-    //                     callback(obj)
-    //                 })
-    //             }
-    //         })
-    //     }else{
-    //         //如果没有hash 直接做下一部
-    //         fileReadStar(filedir,(obj)=>{
-    //             callback(obj)
-    //         })
-    //     }
-    //     //对md文件存储 hash       
-    //     //文件读取
-        
-    // }
-    fileReadStar(filedir,(obj)=>{
-        callback(obj)
-    })
-}
-/**
  * 检查文件是否存折
  * @param {*} path 
  * @param {*} callback 
  */
-function checkIsexists (path,callback){  
-    let pathFileName = path.replace(/[^a-zA-Z]/g,'');
-    let cacheName = './scripts/local'+pathFileName+'.cache';
-    fs.exists(cacheName, res=>{
-        if(!res){
-            fs.writeFile(cacheName,'','utf8',()=>{
-                callback(cacheName)
-            })
-        }else{
-            callback(cacheName)
-        }
-    }) 
-}
+
 /**
  * 执行文件缓存
  */
@@ -241,36 +188,27 @@ function pushHash(obj){
  * 初始化获取所有md文件的 hash
  * @param {*} path 
  */
-function comparehash(path,callback){
-    checkIsexists(path,(cachePath)=>{       
-        //获取文件内容
-        let fileText = fs.readFileSync(cachePath,'utf-8');        
-         //获取文件 hash    
-        hashElement(path, {
-            folders: { exclude: ['.*', 'node_modules', 'test_coverage'] },
-            files: { include: ['*.md'],exclude:['*.js','*.vue','*.scss','__test__'] }
-        }).then(hash => {        
-            console.log(hash)   
-            if(fileText){
-                //如果有内容
-                callback({
-                    fileText:fileText,
-                    cachePath:cachePath
-                })
-            }else{
-                pushHash(hash)               
-                fs.writeFileSync(cachePath,outhash.join('|'),'utf-8');
-                //如果没有内容
-                callback({
-                    fileText:fileText,
-                    cachePath:cachePath
-                })
-            }
+function comparehash(path,callback){  
+    hashElement(path, {
+        folders: { exclude: ['.*', 'node_modules', 'test_coverage'] },
+        files: { include: ['*.md'],exclude:['*.js','*.vue','*.scss','__test__'] }
+    }).then(hash => {  
+        callback({
+            fileText:'',
+            cachePath:''
         })
-        .catch(error => {
-            return console.error('hashing failed:', error);
-        }); 
-    })     
+    }) 
+    // if(callback){
+    //     callback({
+    //         fileText:'',
+    //         cachePath:''
+    //     })
+    // }
+    // callback({
+    //     fileText:'',
+    //     cachePath:''
+    // })
+       
 }
 //文件监听
 function filelisten(param){  
@@ -298,18 +236,17 @@ function filelisten(param){
  */
 function fileDisplay(param) {
     //检查文件是否第一次初始化并获取hash
-    comparehash(param.entry,(hashMsgObj)=>{ 
+    comparehash(param.entry,()=>{ 
         nodeFilelist.read([param.entry],{"ext":"md"},res=>{    
             let reslength = res.length;    
             let routers = [];            
             res.map((item,index)=>{   //数组化文件   
-                ismd(item.path,hashMsgObj,res=>{
-                    //res md文件处理结果           
+                fileReadStar(item.path,(res)=>{
                     createdFile(param.output + res.mdfileName, res.html, param)
-                })
+                })              
             })     
         })
-    });  
+    });     
 }
 
 /**
@@ -317,23 +254,17 @@ function fileDisplay(param) {
  * @outPath {String} 输出的文件目录 
  */
 function ishasOutFile(outPath,callback){
-    fs.rmdir(outPath,(err)=>{
-        if(!err){
-            fs.stat(outPath,(err,res)=>{       
+    fs.stat(outPath,(err,res)=>{       
+        if(err){
+            fs.mkdir(outPath,err=>{
                 if(err){
-                    fs.mkdir(outPath,err=>{
-                        if(err){
-                            console.log(err)
-                        }else{                  
-                            callback()
-                        }               
-                    })
-                }else{
+                    console.log(err)
+                }else{                  
                     callback()
-                }
+                }               
             })
         }else{
-            console.log('删除文件失败，请手动删除')
+            callback()
         }
     })
     
@@ -354,17 +285,26 @@ function MdToHtml(commomOption) {
         hasMarkList:true
     }
     params = Object.assign(params,commomOption);    
-    
-    //检查输出路径
-    ishasOutFile(params.output,()=>{
-         //获取所有的md 转html的结果
-        fileDisplay(params);
-        //文件监听 
-        if(params.isbuild){
-            filelisten(params);
-        }   
+    // hashElement(params.entry, {
+    //     folders: { exclude: ['.*', 'node_modules', 'test_coverage'] },
+    //     files: { include: ['*.md'],exclude:['*.js','*.vue','*.scss','__test__'] }
+    // }).then(hash => {  
+    //     console.log(hash)
         
-    });
+    // }) 
+    nodeFilelist.read(['./docs'],{"ext":'*.*'},function(res){
+        console.log(res)
+    })
+    //检查输出路径
+    // ishasOutFile(params.output,()=>{
+    //      //获取所有的md 转html的结果
+    //     fileDisplay(params);
+    //     //文件监听 
+    //     if(params.isbuild){
+    //         filelisten(params);
+    //     }   
+        
+    // });
    
 }
 //用于后期的扩展暂时没想到
