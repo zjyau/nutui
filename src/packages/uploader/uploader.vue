@@ -1,7 +1,7 @@
 <template>
     <div class="nut-uploader" :class="className">
          <slot></slot>
-         <input type="file" :name="name" @change="upload($event)" class="uploader" >
+         <input type="file" :name="name" @change="upload($event)" class="uploader" :multiple="multiple">
     </div>
 </template>
 <script>
@@ -16,6 +16,10 @@ export default {
         'url':{
             type:String,
             default:''
+        },
+        'multiple':{
+             type:Boolean,
+            default:false
         },
         'isPreview':{
             type:Boolean,
@@ -99,24 +103,32 @@ export default {
             opt.$el = tar;
             if(this.isPreview) {
                 opt.previewData = tar.files[0];
-            }          
-            if(tar.files[0]){
-                
-                if(this.acceptType.indexOf(tar.files[0].type)==-1){
-                    console.log(tar.files[0].type)
-                    this.$emit('showMsg',tar.files[0].type,'您上传的文件类型为:'+tar.files[0].type+',不符合您设置的文档类型:'+this.acceptType.join(',')); 
-                    return ;
+            }   
+            if(this.multiple){
+                for(let i=0;i<tar.files.length;i++){
+                    if(tar.files[i]){                
+                        if(this.acceptType.indexOf(tar.files[i].type)==-1){                              
+                            this.$emit('showMsg',tar.files[i].type,'您上传的文件类型为:'+tar.files[i].type+',不符合您设置的文档类型:'+this.acceptType.join(',')); 
+                            return ;
+                        }
+                    }
                 }
-            }
+            } else{
+                 if(tar.files[0]){                
+                    if(this.acceptType.indexOf(tar.files[0].type)==-1){
+                        console.log(tar.files[0].type)
+                        this.$emit('showMsg',tar.files[0].type,'您上传的文件类型为:'+tar.files[0].type+',不符合您设置的文档类型:'+this.acceptType.join(',')); 
+                        return ;
+                    }
+                }
+            }           
             formData.append(tar.name, tar.files[0]);
             for(let key of Object.keys(this.attach)){
                 formData.append(key, this.attach[key]);
             }
             opt.formData = formData;
-
             opt.showMsgFn = (msg)=>{
-                this.$emit('showMsg',msg); 
-                console.log(msg);
+                this.$emit('showMsg',msg);                 
             }
             new Uploader(opt);
 

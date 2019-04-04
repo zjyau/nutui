@@ -113,6 +113,7 @@ export default {
 | name | input name的名称 | String | ""
 | url | 上传服务器的地址 | String | -
 | isPreview | 是否需要预览 | Boolean | false
+| multiple | 是否上传多张图片 | Boolean | false
 | clearInput | 是否需要清空input内容支持重复上传同一个文件 | Boolean | false
 | maxSize | 可以设定最大上传文件的大小 | Number | 5242880
 | acceptType | 可以上传文件的类型 | Array | ['image/jpeg', 'image/png', 'image/gif', 'image/bmp']

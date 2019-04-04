@@ -75,7 +75,7 @@ class IdaUploader {
            }, false);
 
            xhr.onreadystatechange = (e) => {              
-               if (xhr.readyState === 4) {
+               if (xhr.readyState === 4) {                  
                    if (xhr.status === options.xhrState) {
                        triggerFunc.call(options, options.onSuccess)(formData, xhr.responseText);
                    } else {

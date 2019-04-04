@@ -1,16 +1,20 @@
 <template>
     <div>
-        <h4>常规上传按钮，结合nut-button使用</h4>
+        <h4>常规上传按钮</h4>
+        <p>结合nut-button使用</p>
         <nut-uploader
         :name="name"
         :url="url"
         :xhrState ="stateNum"      
+        :multiple="true"
          @success="sucess1"
+         @failure="failureMSG"
          @fail="fail1"        
         >
         <nut-button small>上传</nut-button>
         </nut-uploader>   
-        <h4>通栏上传按钮自定义样式使用</h4>  
+        <h4>自定义样式</h4> 
+        <p>下面的例子可以自已定义一个 className 去改变样式</p> 
         <nut-uploader
         :name="name"
         :url="url"
@@ -19,23 +23,26 @@
         :className="'block'"
         > 上传
         </nut-uploader>  
-        <h4>带进度的上传按钮结合进度条组件展示zip文件上传</h4>  
-
+        <h4>上传进度</h4>  
+        <p>带进度的上传按钮结合进度条组件展示zip文件上传,建议使用大图方便测试效果</p>
         <nut-uploader
         :name="name"
         :url="url"
         :xhrState ="stateNum"      
          @success="sucess"  
         @progress="progress"
-         @showMsg="showMsgs"
-         :acceptType="demo3Type"
+         @showMsg="showMsgs"        
         :clearInput="true"
         > <nut-button >上传</nut-button>   
         </nut-uploader>  
 
-        <nut-progress class="progress-style" :percentage="progressNum" :showText="false" strokeWidth="24"/>
+        <nut-progress 
+        class="progress-style" 
+        :percentage="progressNum" 
+        :showText="true"
+         strokeWidth="12"/>
 
-        <h4>上传前预览</h4>  
+        <h4>上传预览</h4>  
         <nut-uploader
         :name="name"
         :url="url"
@@ -46,14 +53,14 @@
         @preview="preview"        
         > 上传
         </nut-uploader> 
+        <p>点击上传按钮,并显示上传图片</p>
         <transition name="fade" >
           <div class="img-outbox">
           <img class="img-box" v-if="previewImg" :src="previewImg" alt="">
           </div>
-        </transition>
-
-        <h4>上传前预览+上传进度+错误类型提示</h4>  
-
+        </transition>        
+        <h4>组合用法</h4>  
+        <p>结合上传按钮下面是一个带预览和上传进度以及是否成功的按钮</p>
         <nut-uploader
         :name="name"
         :url="url"
@@ -79,8 +86,7 @@
             </div>
           </div>
           
-        </transition>
-        
+        </transition>   
     </div>
 </template>
 
@@ -114,6 +120,9 @@ export default {
       fail1(file,res){
           console.log(file,res)
         this.$toast.fail('上传成功', { duration:2000 });
+      },
+      failureMSG(){
+          this.$toast.fail('上传失败', { duration:2000 });
       },
       progress(ile, loaded, total){
         this.progressNum = parseInt(100*loaded/total)
