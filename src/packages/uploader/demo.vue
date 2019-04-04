@@ -56,7 +56,7 @@
         <p>点击上传按钮,并显示上传图片</p>
         <transition name="fade" >
           <div class="img-outbox">
-          <img class="img-box" v-if="previewImg" :src="previewImg" alt="">
+          <div><img class="img-box" v-if="previewImg" :src="previewImg" alt=""></div>
           </div>
         </transition>        
         <h4>组合用法</h4>  
@@ -75,7 +75,7 @@
         </nut-uploader> 
         <transition name="fade" >
           <div class="img-outbox">
-            <img class="img-box" v-if="previewImg2" :src="previewImg2" alt="">
+            <div><img class="img-box" v-if="previewImg" :src="previewImg2" alt=""></div>
             <svg v-if="upOver" t="1553591410013" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1985" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
               <path d="M511.950005 512.049995m-447.956254 0a447.956254 447.956254 0 1 0 895.912508 0 447.956254 447.956254 0 1 0-895.912508 0Z" fill="#20B759" p-id="1986"></path>
               <path d="M458.95518 649.636559L289.271751 479.95313c-11.698858-11.698858-30.697002-11.698858-42.39586 0s-11.698858 30.697002 0 42.395859l169.683429 169.68343c11.698858 11.698858 30.697002 11.698858 42.39586 0 11.798848-11.598867 11.798848-30.597012 0-42.39586z" fill="#FFFFFF" p-id="1987"></path>
@@ -162,6 +162,10 @@ export default {
     position: relative;
     border:1px solid #f2f2f2;
     line-height: 100px;
+    display: flex;       
+    justify-content:center;
+    align-content:center;
+    align-items:center;
     .img-box{
       margin-top:0;
     }
@@ -187,11 +191,13 @@ export default {
       background: rgba(0,0,0,.2);
     }
 }
-   .img-box{
-     margin-top:20px;
-    width: 100px;    
+   .img-box{     
+    margin-top:20px;
+    max-width: 100px;    
+    max-height: 100px;
     border-radius: 6px;
-    vertical-align: middle;
+    max-width: 100%;  
+    height:auto;     
   }
   .block{
     display: block;
