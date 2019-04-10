@@ -11,7 +11,13 @@
         <h4>支持长按删除图片</h4>
         <nut-imagepicker @imgMsg="imgMsg" delMode="longtap"></nut-imagepicker>
         <h4>选择完成图片之后自动上传</h4>
-        <nut-imagepicker @imgMsg="imgMsg" autoUpload="true"></nut-imagepicker>
+        <nut-imagepicker
+          :url="'https://my-json-server.typicode.com/linrufeng/demo/posts'"
+         @success ="successMsg"
+         @imgMsg="imgMsg" 
+         @failure ="errorMsg"
+         :xhrState="201"
+         :ismultiple=true  :max="4"  autoUpload="true"></nut-imagepicker>
     </div>
 </template>
 
@@ -39,6 +45,14 @@ export default {
         alert('upload');
       }
       console.log(data);//code 1 自动上传  2 不上传只展示图片  3 删除图片  4 预览图片
+    },
+    successMsg(file,res){
+        console.log(file,res)
+        this.$toast.success('上传成功', { duration:2000 });
+    },
+    errorMsg(file,res){
+       console.log(file,res)
+        this.$toast.success('失败', { duration:2000 });
     }
   }
 };

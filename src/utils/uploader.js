@@ -39,14 +39,27 @@ class IdaUploader {
        }
    }
    check (file) {
-       if (this.options.maxSize && (file.size > this.options.maxSize)) {
-           this.showMsg(this.limitError);
-           return false;
-       }
-       if (this.options.acceptType.length && this.options.acceptType.indexOf(file.type) === -1) {           
-           this.showMsg(this.typeError);
-           return false;
-       }
+       if(Array.isArray(file)){           
+           for(let key in file){
+                if (this.options.maxSize && (file[key].size > this.options.maxSize)) {
+                    this.showMsg(this.limitError);
+                    return false;
+                }
+                if (this.options.acceptType.length && this.options.acceptType.indexOf(file[key].type) === -1) {           
+                    this.showMsg(this.typeError);
+                    return false;
+                }
+           }
+       }else{
+            if (this.options.maxSize && (file.size > this.options.maxSize)) {
+                this.showMsg(this.limitError);
+                return false;
+            }
+            if (this.options.acceptType.length && this.options.acceptType.indexOf(file.type) === -1) {           
+                this.showMsg(this.typeError);
+                return false;
+            }
+       }       
        return true;
    }
    preview () {  

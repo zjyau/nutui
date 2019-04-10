@@ -75,7 +75,11 @@ export default {
             default:() => {
                 return [];
             }
-        }   
+        },
+         'xhrState':{
+            type:Number,
+            default:200
+        },
       
     },
     data() {
@@ -98,34 +102,38 @@ export default {
             if (file.length > self.max - self.list.length) {
 
                 fileArr = fileArr.filter((item,index) => index < self.max - self.list.length);
-            }
-            debugger;
+            }    
             if (self.autoUpload) {//自动上传
                 this.upload(file);                     
-            } else {
-                fileArr.forEach((item,index) => {
-                    let reader = new FileReader();
-                    reader.onload = function(evt) {
-                        self.list.push({
-                            id:Math.random(),
-                            src:evt.target.result
-                        });
-                        event.target.value = '';
-                        self.$emit('imgMsg',{
-                            code:2,
-                            msg:fileArr
-                        });
-                    }
-                    reader.readAsDataURL(item);
-                });
-            }
+            }         
+            fileArr.forEach((item,index) => {
+                let reader = new FileReader();
+                reader.onload = function(evt) {
+                    self.list.push({
+                        id:Math.random(),
+                        src:evt.target.result
+                    });
+                    event.target.value = '';
+                    self.$emit('imgMsg',{
+                        code:2,
+                        msg:fileArr
+                    });
+                }
+                reader.readAsDataURL(item);
+            });
+
+            
         },
         upload(files){             
             if(files){
+                let _this = this;
                 let opt ={
                     url:this.url,
                     formData:null,
                     maxSize: this.maxSize, //允许上传的文件最大字节
+                    previewData:[],
+                    isPreview:false,
+                    xhrState:this.xhrState,
                     onSuccess(file, responseTxt) {                   
                         _this.$emit('success',file, responseTxt);
                     },
@@ -138,6 +146,7 @@ export default {
                 }
                 let formData = new FormData;
                 let fileArr = Array.from(files);
+                opt.previewData = fileArr
                 for(let key in fileArr){
                     formData.append(fileArr[key].name,fileArr[key])
                 }
