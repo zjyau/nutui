@@ -87,7 +87,8 @@ export default {
     data() {
         return {
             timeOutEvent:0,
-            list:[]
+            list:[],
+            fileList:[]
         };
     },
     mounted() {
@@ -111,18 +112,26 @@ export default {
             fileArr.forEach((item,index) => {
                 let reader = new FileReader();
                 reader.onload = function(evt) {
+                    let creatId = Number(new Date());
                     self.list.push({
-                        id:Math.random(),
+                        id:creatId,
                         src:evt.target.result
-                    });
-                    event.target.value = '';
+                    });                   
+                    self.fileList.push({
+                        id:creatId,
+                        file:item
+                    })                 
                     self.$emit('imgMsg',{
                         code:2,
-                        msg:fileArr
+                        msg:fileArr,
+                        fileList:self.fileList
                     });
+                     event.target.value = '';   
+                    
                 }
                 reader.readAsDataURL(item);
             });
+           
 
             
         },
@@ -165,9 +174,12 @@ export default {
         },
         deleteImg(id) {
             this.list = this.list.filter(item => item.id != id);
+            this.fileList = this.fileList.filter(item => item.id != id);
             this.$emit('imgMsg',{
                 code:3,
-                msg:id
+                msg:id,
+                list:this.list,
+                fileList:this.fileList
             });
         },
         touchStart(id) {

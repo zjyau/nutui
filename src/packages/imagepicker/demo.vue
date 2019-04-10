@@ -25,6 +25,11 @@
          :ismultiple=true  
          :max="4"  
          autoUpload="true"></nut-imagepicker>
+         <h4>批量上传</h4>
+         <p>关闭自动上传,每次添加完图片会返回当前所选择图片的列表信息 uploadfileList 然后自定义上传</p>
+         <div class="demo6">
+           <nut-imagepicker @imgMsg="imgMsg6" :max="4"></nut-imagepicker>
+         </div>
     </div>
 </template>
 <script>
@@ -42,7 +47,8 @@ export default {
           id:1,
           src:"//img1.360buyimg.com/da/jfs/t1/4436/26/9691/78074/5bad0668E7ce89ec6/c234b749ae9e7332.jpg"
         }
-      ]
+      ],
+      uploadfileList:[]
     };
   },
   methods: {
@@ -59,6 +65,12 @@ export default {
     errorMsg(file,res){
        console.log(file,res)
         this.$toast.success('失败', { duration:2000 });
+    },
+    imgMsg6(data){
+      console.log(data)
+      if(data.fileList){
+        this.uploadfileList = data.fileList;
+      }
     }
   }
 };
