@@ -22,9 +22,14 @@
     </div>
 </template>
 <script>
+import Uploader from '../../utils/uploader.js';
 export default {
     name:'nut-imagepicker',
     props: {
+        url:{
+            type:String,
+            default:null
+        },
         animation:{
             type:[Boolean],
             default:true
@@ -45,6 +50,10 @@ export default {
             type:[Number,String],
             default:9
         },
+        'maxSize':{
+            type:Number,
+            default:5242880
+        },
         accept:{
             type:[String],
             default:"image/*"
@@ -64,11 +73,10 @@ export default {
         imgList:{
             type:Array,
             default:() => {
-                return [
-
-                ];
+                return [];
             }
-        }
+        }   
+      
     },
     data() {
         return {
@@ -91,12 +99,9 @@ export default {
 
                 fileArr = fileArr.filter((item,index) => index < self.max - self.list.length);
             }
-
+            debugger;
             if (self.autoUpload) {//自动上传
-                self.$emit('imgMsg',{
-                    code:1,
-                    msg:fileArr
-                });
+                this.upload(file);                     
             } else {
                 fileArr.forEach((item,index) => {
                     let reader = new FileReader();
@@ -114,6 +119,32 @@ export default {
                     reader.readAsDataURL(item);
                 });
             }
+        },
+        upload(files){             
+            if(files){
+                let opt ={
+                    url:this.url,
+                    formData:null,
+                    maxSize: this.maxSize, //允许上传的文件最大字节
+                    onSuccess(file, responseTxt) {                   
+                        _this.$emit('success',file, responseTxt);
+                    },
+                    onStart() {
+                        _this.$emit('start');
+                    },
+                    onFailure(file, responseTxt) {
+                        _this.$emit('failure',file, responseTxt);
+                    }
+                }
+                let formData = new FormData;
+                let fileArr = Array.from(files);
+                for(let key in fileArr){
+                    formData.append(fileArr[key].name,fileArr[key])
+                }
+                opt.formData = formData;            
+                new Uploader(opt);
+            }            
+            
         },
         preview(id) {
             this.$emit('imgMsg',{
