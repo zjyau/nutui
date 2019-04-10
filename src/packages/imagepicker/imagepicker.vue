@@ -10,8 +10,10 @@
                         @touchstart="delMode == 'longtap' ? touchStart(item.id) : ''"
                         @touchmove="delMode == 'longtap' ? touchMove(item.id) : ''"
                         @touchend="delMode == 'longtap' ? touchEnd(item.id) : ''"
-                >
-                <a href="javascript:;"><img :src="item.src" alt=""></a>
+                >                
+                <div>
+                    <a href="javascript:;"><img :src="item.src" alt=""></a>
+                </div>
                 </div>
             </transition-group>
             <div class="add-icon" :style="{'width':width + 'px','height':height + 'px'}" v-show="this.list.length < this.max">

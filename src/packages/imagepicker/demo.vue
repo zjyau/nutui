@@ -2,25 +2,31 @@
     <div>
         <h4>基本用法</h4>
         <nut-imagepicker @imgMsg="imgMsg" :imgList="imgList1"></nut-imagepicker>
-        <h4>指定宽度和高度都是120px,图片间距是10px</h4>
+        <h4>自定样式</h4>
+        <p>允许自定义大小和宽度 还有边距</p>
         <nut-imagepicker @imgMsg="imgMsg" :width="120" :height="120" :margin="10" :imgList="imgList2"></nut-imagepicker>
-        <h4>允许上传的最大数量是4张</h4>
+        <h4>数量限制</h4>
+        <p>可以限制选择图片的个数</p>
         <nut-imagepicker @imgMsg="imgMsg" :max="4"></nut-imagepicker>
-        <h4>支持多图选择</h4>
+        <h4>多图选择</h4>
+        <p>不限制选择图片的个数</p>
         <nut-imagepicker @imgMsg="imgMsg" :ismultiple=true></nut-imagepicker>
-        <h4>支持长按删除图片</h4>
+        <h4>长按删除</h4>
+        <p>默认是点击就删除，可以配置成长按删除</p>
         <nut-imagepicker @imgMsg="imgMsg" delMode="longtap"></nut-imagepicker>
-        <h4>选择完成图片之后自动上传</h4>
+        <h4>自动上传</h4>
+        <p>默认不开启自动上传功能，开启图片上传功能之后所选的图片会自动上传到服务器。<br><b>注意:点击删除仅仅删除本地展示，不支持删除服务器中已上传图片</b></p>
         <nut-imagepicker
           :url="'https://my-json-server.typicode.com/linrufeng/demo/posts'"
          @success ="successMsg"
          @imgMsg="imgMsg" 
          @failure ="errorMsg"
          :xhrState="201"
-         :ismultiple=true  :max="4"  autoUpload="true"></nut-imagepicker>
+         :ismultiple=true  
+         :max="4"  
+         autoUpload="true"></nut-imagepicker>
     </div>
 </template>
-
 <script>
 export default {
   data() {
