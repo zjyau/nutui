@@ -1,12 +1,4 @@
-function triggerFunc(func) {
-    if (typeof(func)==='function') {
-        return func.bind(this);
-    } else {
-        console.warn(func + 'is not a function!');
-        return function() {};
-    }
-}
-//文件上传模块
+
 class IdaUploader {
    constructor (settings) {
        this.options = {
@@ -22,13 +14,23 @@ class IdaUploader {
            onPreview: null,
            onSuccess: null,
            onFailure: null,
-           xhrStatus:200, //默认上传成功是200m
-           readyState:4
+           xhrStatus:200, //默认上传成功是200
+           readyState:4,
+           xmlError:'Sorry, your browser does not support this component !',
+           typeError:"This file type is not supported ！",
+           limitError:"The file size exceeds the limit ！"
        };
-
        Object.assign(this.options, settings);
        this[this.options.isPreview ? 'preview' : 'uploader']()
    }
+   triggerFunc(func) {
+        if (typeof(func)==='function') {
+            return func.bind(this);
+        } else {
+            console.warn(func + 'is not a function!');
+            return function() {};
+        }
+    }
    showMsg (msg) {
        if (typeof(this.options.showMsgFn)=='function') {
            this.options.showMsgFn(msg);
@@ -38,66 +40,52 @@ class IdaUploader {
    }
    check (file) {
        if (this.options.maxSize && (file.size > this.options.maxSize)) {
-           this.showMsg('文件大小超过限制！');
+           this.showMsg(this.limitError);
            return false;
        }
-
-       if (this.options.acceptType.length && this.options.acceptType.indexOf(file.type) === -1) {
-           
-           this.showMsg('不支持此文件类型！');
+       if (this.options.acceptType.length && this.options.acceptType.indexOf(file.type) === -1) {           
+           this.showMsg(this.typeError);
            return false;
        }
-
        return true;
    }
-   preview () {
-       //let file = this.options.formData.get('imgData');
-       let that = this;
+   preview () {  
        const file = this.options.previewData;    
-       if (!that.check(file)) return;
+       if (!this.check(file)) return;
        const reader = new FileReader();       
        reader.onload = (e) => {
-           that.uploader();
-           triggerFunc.call(this.options, this.options.onPreview)(e.target.result);
-           
+        this.uploader();
+           this.triggerFunc.call(this.options, this.options.onPreview)(e.target.result);           
        }
-       reader.readAsDataURL(file);
-       
+       reader.readAsDataURL(file);       
    }
    uploader () {
        const xhr = new XMLHttpRequest();
        let options = this.options;
-       let formData = options.formData;
-       
+       let formData = options.formData;       
        if (xhr.upload) {    
            xhr.upload.addEventListener('progress', (e) => {
-               triggerFunc.call(options, options.onProgress)(formData, e.loaded, e.total);
+               this.triggerFunc.call(options, options.onProgress)(formData, e.loaded, e.total);
            }, false);
-
            xhr.onreadystatechange = (e) => {              
                if (xhr.readyState === 4) {                  
                    if (xhr.status === options.xhrState) {
-                       triggerFunc.call(options, options.onSuccess)(formData, xhr.responseText);
+                        this.triggerFunc.call(options, options.onSuccess)(formData, xhr.responseText);
                    } else {
-                       triggerFunc.call(options, options.onFailure)(formData, xhr.responseText);
+                        this.triggerFunc.call(options, options.onFailure)(formData, xhr.responseText);
                    }
                }
            };
-
            xhr.withCredentials = true;
-
            xhr.open('POST', options.url, true);
-           triggerFunc.call(options, options.onStart)();
-          
+           this.triggerFunc.call(options, options.onStart)();          
            xhr.send(formData);
            if(options.clearInput){
                 options.$el.value = ''  ;
-           }
-           
+           }           
        } else {
-           this.showMsg('对不起，您的浏览器不支持本组件！')
+           this.showMsg(this.xmlError)
        }
    }
 }
-
 export default IdaUploader;

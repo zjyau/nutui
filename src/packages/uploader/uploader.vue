@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import Uploader from './uploader.js';
+import Uploader from '../../utils/uploader.js';
 export default {
     name:'nut-uploader',
        props: {
