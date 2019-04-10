@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4>常规上传按钮</h4>
+        <h4>上传按钮</h4>
         <p>结合nut-button使用</p>
         <nut-uploader
         :name="name"
@@ -13,7 +13,7 @@
         >
         <nut-button small>上传</nut-button>
         </nut-uploader>   
-        <h4>自定义样式</h4> 
+        <h4>自定样式</h4> 
         <p>下面的例子可以自已定义一个 className 去改变样式</p> 
         <nut-uploader
         :name="name"
