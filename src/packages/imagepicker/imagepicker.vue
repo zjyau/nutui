@@ -1,8 +1,8 @@
 <template>
     <div class="nut-imagepicker">
         <div class="img-list">
-            <transition-group :name="animation?'nutEase':''">
-                <div class="img-item"
+            <transition-group :name="animation?'nutEase':''" tag="ul" class="img-list-img">
+                <li class="img-item"
                         v-for="item in this.list"
                         :key="item.id"
                         :style="{'width':width + 'px','height':height + 'px','marginRight':margin + 'px'}"
@@ -14,7 +14,7 @@
                 <div>
                     <a href="javascript:;"><img :src="item.src" alt=""></a>
                 </div>
-                </div>
+                </li>
             </transition-group>
             <div class="add-icon" :style="{'width':width + 'px','height':height + 'px'}" v-show="this.list.length < this.max">
                 <i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill-rule="evenodd"><rect y="6" width="16" height="4" rx="2"></rect><rect transform="rotate(90 8 8)" y="6" width="16" height="4" rx="2"></rect></g></svg></i>

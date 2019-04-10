@@ -2,11 +2,14 @@
     display:block;
     .img-list{
         display: flex;
-        .img-item{
+        align-items:center;
+        .img-list-img{
             display: flex;
-            justify-content:center;           
             align-items:center;
-            margin:0 0 5px 0;
+        }
+        .img-item{
+            display: inline-flex;                
+            align-items:center;            
             a{
                 display:inline-block;
                 width:100%;
