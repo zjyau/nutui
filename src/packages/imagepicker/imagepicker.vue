@@ -11,7 +11,7 @@
                         @touchmove="delMode == 'longtap' ? touchMove(item.id) : ''"
                         @touchend="delMode == 'longtap' ? touchEnd(item.id) : ''"
                 >    
-                    <a href="javascript:;"><img :src="item.src" alt=""></a>
+                    <img :src="item.src" alt="">
                 </li>
             </transition-group>
             <div class="add-icon" :style="{'width':width + 'px','height':height + 'px'}" v-show="this.list.length < this.max">
