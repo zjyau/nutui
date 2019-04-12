@@ -1,27 +1,29 @@
 <template>
     <div>
+        <h4>基本用法</h4> 
+        <p>下面的例子可以自已定义一个 className 和文字内容</p> 
+        <nut-uploader
+        :name="name"
+        :url="url"
+        :xhrState ="stateNum"      
+         @success="demo1success"
+         @failure="demo1fail"      
+         @start="uploadStart"        
+        :className="'block'"
+        > {{demo1Name}}
+        </nut-uploader>  
         <h4>上传按钮</h4>
         <p>结合nut-button使用</p>
         <nut-uploader
         :name="name"
         :url="url"
-        :xhrState ="stateNum"    
-         @success="sucess1"
-         @failure="failureMSG"
-         @fail="fail1"        
+        :xhrState ="stateNum"   
+         @start="demo2uploadStart"      
+         @success="demo2success"
+         @failure="demo2fail"       
         >
-        <nut-button small>上传</nut-button>
-        </nut-uploader>   
-        <h4>自定样式</h4> 
-        <p>下面的例子可以自已定义一个 className 去改变样式</p> 
-        <nut-uploader
-        :name="name"
-        :url="url"
-        :xhrState ="stateNum"      
-         @success="sucess1"        
-        :className="'block'"
-        > 上传
-        </nut-uploader>  
+        <nut-button small>{{demo2Name}}</nut-button>
+        </nut-uploader>           
         <h4>上传进度</h4>  
         <p>带进度的上传按钮结合进度条组件展示zip文件上传,建议使用大图方便测试效果</p>
         <nut-uploader
@@ -34,7 +36,6 @@
         :clearInput="true"
         > <nut-button >上传</nut-button>   
         </nut-uploader>  
-
         <nut-progress 
         class="progress-style" 
         :percentage="progressNum" 
@@ -57,34 +58,7 @@
           <div class="img-outbox">
           <img class="img-box" v-if="previewImg" :src="previewImg" alt="">
           </div>
-        </transition>        
-        <h4>组合用法</h4>  
-        <p>结合上传按钮下面是一个带预览和上传进度以及是否成功的按钮</p>
-        <nut-uploader
-        :name="name"
-        :url="url"
-        :xhrState ="stateNum"      
-         @success="sucess"        
-        :className="'block'"
-        :isPreview="true"      
-        @preview="preview2"
-        @progress="progress2"
-        @showMsg="showMsgs"
-        > 上传
-        </nut-uploader> 
-        <transition name="fade" >
-          <div class="img-outbox">
-            <img class="img-box" v-if="previewImg2" :src="previewImg2" alt="">
-            <svg v-if="upOver" t="1553591410013" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1985" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
-              <path d="M511.950005 512.049995m-447.956254 0a447.956254 447.956254 0 1 0 895.912508 0 447.956254 447.956254 0 1 0-895.912508 0Z" fill="#20B759" p-id="1986"></path>
-              <path d="M458.95518 649.636559L289.271751 479.95313c-11.698858-11.698858-30.697002-11.698858-42.39586 0s-11.698858 30.697002 0 42.395859l169.683429 169.68343c11.698858 11.698858 30.697002 11.698858 42.39586 0 11.798848-11.598867 11.798848-30.597012 0-42.39586z" fill="#FFFFFF" p-id="1987"></path>
-              <path d="M777.62406 332.267552c-11.698858-11.698858-30.697002-11.698858-42.39586 0L424.158578 643.437164c-11.698858 11.698858-11.698858 30.697002 0 42.39586s30.697002 11.698858 42.39586 0l311.069622-311.069622c11.798848-11.798848 11.798848-30.796992 0-42.49585z" fill="#FFFFFF" p-id="1988"></path>
-            </svg>
-             <div class="pr" v-if="progressNum2">
-              {{progressNum2}}%
-            </div>
-          </div>          
-        </transition>   
+        </transition>    
     </div>
 </template>
 
@@ -96,6 +70,8 @@ export default {
   data() {
     return {
       url:'https://my-json-server.typicode.com/linrufeng/demo/posts',
+      demo1Name:'选择文件',
+      demo2Name:"选择文件",
       name:'test1',
       stateNum:201,   
       block:'block',
@@ -108,6 +84,28 @@ export default {
     };
   },
   methods: {
+      uploadStart(){
+        this.demo1Name = "上传中...";
+      },
+      demo1success(){
+        this.demo1Name = "选择文件";
+        this.$toast.success('上传成功', { duration:2000 });
+      },
+      demo1fail(){
+        this.demo1Name = "选择文件";
+        this.$toast.fail('上传失败', { duration:2000 });
+      },
+      demo2uploadStart(){
+        this.demo2Name = "上传中...";
+      },
+      demo2success(){
+        this.demo2Name = "选择文件";
+        this.$toast.success('上传成功', { duration:2000 });
+      },
+      demo2fail(){
+        this.demo2Name = "选择文件";
+        this.$toast.fail('上传失败', { duration:2000 });
+      },
       sucess(file,res){
         console.log(file,res)
       },
