@@ -16,9 +16,9 @@ class IdaUploader {
            onFailure: null,
            xhrStatus:200, //默认上传成功是200
            readyState:4,
-           xmlError:null, //'Sorry, your browser does not support this component !'
-           typeError:null, //"This file type is not supported ！"
-           limitError:null///"The file size exceeds the limit ！"
+           xmlError:null, 
+           typeError:null, 
+           limitError:null 
        };
        Object.assign(this.options, settings);
        this[this.options.isPreview ? 'preview' : 'uploader']()
