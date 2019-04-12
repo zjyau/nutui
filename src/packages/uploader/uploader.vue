@@ -55,7 +55,19 @@ export default {
         'clearInput':{
             type:Boolean,
             default:false
-        }    
+        },
+        'xmlError':{
+            type:String,
+            default:'Sorry, your browser does not support this component !'
+        },
+         'typeError':{
+            type:String,
+            default:'This file type is not supported !'
+        },
+         'limitError':{
+            type:String,
+            default:'The file size exceeds the limit !'
+        } 
     },
     data() {
         return {};
@@ -73,6 +85,9 @@ export default {
                  acceptType: this.acceptType, //允许上传的文件类型
                  xhrState:this.xhrState,    
                  clearInput:this.clearInput,          
+                 xmlError:this.xmlError,
+                 typeError:this.typeError, 
+                 limitError:this.limitError,
                  onStart() {
                     _this.$emit('start');
                  },
