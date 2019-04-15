@@ -30,6 +30,11 @@ const lang = {
             step: 'Step',
             stepDesc: 'Step description'
         },
+        uploader: {
+            xmlError: 'Sorry, your browser does not support this component!',
+            typeError: 'This type of file is not supported',
+            limitError: 'File size exceeded the limit'
+        }
         okBtnTxt: 'Ok',
         cancelText: 'Cancel'
     }

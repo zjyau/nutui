@@ -1,13 +1,15 @@
 <template>
-  <div class="nut-uploader" :class="className">
+  <div class="nut-uploader">
     <slot></slot>
     <input type="file" :name="name" @change="upload($event)" class="uploader" :multiple="multiple">
   </div>
 </template>
 <script>
 import Uploader from "../../utils/uploader.js";
+import locale from "../../mixins/locale";
 export default {
   name: "nut-uploader",
+  mixins: [locale],
   props: {
     name: {
       type: String,
@@ -48,25 +50,21 @@ export default {
       type: Number,
       default: 200
     },
-    className: {
-      type: String,
-      default: null
-    },
     clearInput: {
       type: Boolean,
       default: false
     },
     xmlError: {
       type: String,
-      default: "对不起，您的浏览器不支持本组件！"
+      default: ''
     },
     typeError: {
       type: String,
-      default: "不支持上传该类型文件"
+      default: ''
     },
     limitError: {
       type: String,
-      default: "文件大小超过限制"
+      default: ''
     }
   },
   data() {
@@ -85,9 +83,9 @@ export default {
         acceptType: this.acceptType, //允许上传的文件类型
         xhrState: this.xhrState,
         clearInput: this.clearInput,
-        xmlError: this.xmlError,
-        typeError: this.typeError,
-        limitError: this.limitError,
+        xmlError: this.xmlError || this.nutTranslate('lang.uploader.xmlError'),
+        typeError: this.typeError || this.nutTranslate('lang.uploader.typeError'),
+        limitError: this.limitError || this.nutTranslate('lang.uploader.limitError'),
         onStart() {
           _this.$emit("start");
         },
@@ -123,7 +121,7 @@ export default {
         for (let i = 0; i < tar.files.length; i++) {
           if (tar.files[i]) {
             if (this.acceptType.indexOf(tar.files[i].type) == -1) {
-              this.$emit("showMsg", this.typeError);
+              this.$emit("showMsg", opt.typeError);
               return;
             }
           }
@@ -131,8 +129,7 @@ export default {
       } else {
         if (tar.files[0]) {
           if (this.acceptType.indexOf(tar.files[0].type) == -1) {
-            console.log(tar.files[0].type);
-            this.$emit("showMsg", this.typeError);
+            this.$emit("showMsg", opt.typeError);
             return;
           }
         }
