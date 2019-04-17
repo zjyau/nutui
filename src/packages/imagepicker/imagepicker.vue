@@ -11,7 +11,9 @@
                         @touchmove="delMode == 'longtap' ? touchMove(item.id) : ''"
                         @touchend="delMode == 'longtap' ? touchEnd(item.id) : ''"
                 >    
-                  <img :src="item.src" alt="">
+                  <img :src="item.src" alt="">        
+                  <!-- <div class="progress" v-if="item.progress">
+                      {{item.progress}}%</div>          -->
                 </li>
             </transition-group>
             <div class="add-icon" :style="{'width':width + 'px','height':height + 'px'}" v-show="this.list.length < this.max">
@@ -80,14 +82,27 @@ export default {
             type:Number,
             default:200
         },
+        batchUpload:{
+            type:Boolean,
+            default:false
+        }
       
     },
     data() {
         return {
             timeOutEvent:0,
             list:[],
-            fileList:[]
+            fileList:[],            
+            autoProgress:0         
         };
+    },
+    watch:{
+        batchUpload(val){
+            
+            if(val){
+                this.batchUp()
+            }
+        }
     },
     mounted() {
         this.list = this.imgList;
@@ -133,26 +148,48 @@ export default {
 
             
         },
-        upload(files){             
-            if(files){
-                let _this = this;
-                let opt ={
-                    url:this.url,
-                    formData:null,
-                    maxSize: this.maxSize, //允许上传的文件最大字节
-                    previewData:[],
-                    isPreview:false,
-                    xhrState:this.xhrState,
-                    onSuccess(file, responseTxt) {                   
-                        _this.$emit('success',file, responseTxt);
-                    },
-                    onStart() {
-                        _this.$emit('start');
-                    },
-                    onFailure(file, responseTxt) {
-                        _this.$emit('failure',file, responseTxt);
-                    }
+        params(){
+            const _this = this;        
+            return {
+                $el: {},
+                url: this.url, //图片上传地址
+                formData: null,
+                isPreview: this.isPreview, //是否开启本地预览
+                previewData: null,
+                maxSize: this.maxSize, //允许上传的文件最大字节
+                acceptType: this.acceptType, //允许上传的文件类型
+                xhrState: this.xhrState,
+                clearInput: this.clearInput,
+                xmlError: this.xmlError,
+                typeError: this.typeError,
+                limitError: this.limitError,
+                onStart() {
+                _this.$emit("start");
+                },
+                onProgress(file, loaded, total) {   
+                    // console.log(file)  
+                    // let lng = _this.list.length;    
+                    // let temp = _this.list[lng-1];
+                    // temp['progress'] = parseInt((100 * loaded) / total)
+                    // _this.$set(_this.list,lng-1,temp );
+                    // _this.autoProgress = parseInt(loaded/total)*100;
+                    _this.$emit("progress", file, loaded, total);
+                },
+                onPreview(previewFile) {
+                _this.$emit("preview", previewFile);
+                },
+                onSuccess(file, responseTxt) {
+                _this.$emit("success", file, responseTxt);
+                },
+                onFailure(file, responseTxt) {
+                _this.$emit("failure", file, responseTxt);
                 }
+            };
+        },
+        upload(files){       
+            let opt = this.params();      
+            if(files){
+                let _this = this;   
                 let formData = new FormData;
                 let fileArr = Array.from(files);
                 opt.previewData = fileArr
@@ -161,8 +198,18 @@ export default {
                 }
                 opt.formData = formData;            
                 new Uploader(opt);
-            }            
-            
+            }   
+        },
+        batchUp(){
+            let list = this.fileList;
+            let formData = new FormData;
+            let opt = this.params();     
+            for(let item of list){               
+                formData.append(item.id,item.file);
+            }
+            opt.formData = formData;     
+            new Uploader(opt);
+           
         },
         preview(id) {
             this.$emit('imgMsg',{

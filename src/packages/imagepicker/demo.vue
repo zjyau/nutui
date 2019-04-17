@@ -28,14 +28,25 @@
          <h4>批量上传</h4>
          <p>关闭自动上传,每次添加完图片会返回当前所选择图片的列表信息 uploadfileList 然后自定义上传</p>
          <div class="demo6">
-           <nut-imagepicker @imgMsg="imgMsg6" :max="4"></nut-imagepicker>
+           <nut-imagepicker
+            :url="'https://my-json-server.typicode.com/linrufeng/demo/posts'"
+            @imgMsg="imgMsg6"             
+            @start="start6"
+            @success="onSuccess6"
+            @failure="onFailure6"            
+            :max="2"             
+            :batchUpload="batchUploads"></nut-imagepicker>
+           <nut-button class="upload-box" v-if="uploadfileList.length == 2" @click="uploadList">{{demo6name}}</nut-button>
          </div>
     </div>
 </template>
 <script>
+import Uploader from "../../utils/uploader.js";
 export default {
   data() {
     return {
+      demo6name:"上传",
+      batchUploads:false,
       imgList1:[
         {
           id:1,
@@ -71,11 +82,29 @@ export default {
       if(data.fileList){
         this.uploadfileList = data.fileList;
       }
+    },
+    uploadList(){
+        this.batchUploads = true;      
+       
+    },
+    start6(){
+        this.batchUploads = false;      
+        this.demo6name =" 上传中..."
+    },
+    onSuccess6(){
+       this.demo6name =" 上传";
+        this.$toast.fail("上传成功");
+    },
+    onFailure6(){
+      this.demo6name =" 上传";
+      this.$toast.fail("上传失败");
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
+.upload-box{
+  margin-top:10px;
+}
 </style>
