@@ -12,8 +12,21 @@
                         @touchend="delMode == 'longtap' ? touchEnd(item.id) : ''"
                 >    
                   <img :src="item.src" alt="">        
-                  <!-- <div class="progress" v-if="item.progress">
-                      {{item.progress}}%</div>          -->
+                  <div class="progress" v-if="item.progress && item.progress != 100">
+                      {{item.progress}}%</div>        
+                    <div class="statefall" v-if="item.state ==2">
+                        上传失败
+                    </div> 
+                    <div class="statesucess" v-if="item.state ==1">                        
+                        <svg t="1556004175811" 
+                        class="icon" style="" 
+                        viewBox="0 0 1024 1024" 
+                        version="1.1" xmlns="http://www.w3.org/2000/svg" 
+                        p-id="1121" 
+                        xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+                        <path d="M469.333333 640l0.384 0.384L469.333333 640z m-106.282666 0l-0.384 0.384 0.384-0.384z m48.512 106.666667a87.466667 87.466667 0 0 1-61.653334-24.874667l-179.52-173.632a67.797333 67.797333 0 0 1 0-98.24c28.032-27.157333 73.493333-27.157333 101.589334 0l139.584 134.997333 319.168-308.544c28.032-27.157333 73.493333-27.157333 101.589333 0a67.925333 67.925333 0 0 1 0 98.24L472.981333 722.069333A87.530667 87.530667 0 0 1 411.562667 746.666667z" fill="#78C326" p-id="1122">
+                        </path></svg>
+                    </div> 
                 </li>
             </transition-group>
             <div class="add-icon" :style="{'width':width + 'px','height':height + 'px'}" v-show="this.list.length < this.max">
@@ -93,7 +106,7 @@ export default {
             timeOutEvent:0,
             list:[],
             fileList:[],            
-            autoProgress:0         
+            autoProgress:{}
         };
     },
     watch:{
@@ -119,16 +132,17 @@ export default {
 
                 fileArr = fileArr.filter((item,index) => index < self.max - self.list.length);
             }    
+            let creatId = Number(new Date());
             if (self.autoUpload) {//自动上传
-                this.upload(file);                     
+                this.upload(file,creatId);                     
             }         
             fileArr.forEach((item,index) => {
                 let reader = new FileReader();
-                reader.onload = function(evt) {
-                    let creatId = Number(new Date());
+                reader.onload = function(evt) {                    
                     self.list.push({
                         id:creatId,
-                        src:evt.target.result
+                        src:evt.target.result,
+                        progress:''
                     });                   
                     self.fileList.push({
                         id:creatId,
@@ -162,37 +176,69 @@ export default {
                 clearInput: this.clearInput,
                 xmlError: this.xmlError,
                 typeError: this.typeError,
-                limitError: this.limitError,
+                limitError: this.limitError,                
+                creatId:'',
                 onStart() {
                 _this.$emit("start");
                 },
-                onProgress(file, loaded, total) {   
-                    // console.log(file)  
-                    // let lng = _this.list.length;    
-                    // let temp = _this.list[lng-1];
-                    // temp['progress'] = parseInt((100 * loaded) / total)
-                    // _this.$set(_this.list,lng-1,temp );
-                    // _this.autoProgress = parseInt(loaded/total)*100;
-                    _this.$emit("progress", file, loaded, total);
+                onProgress(file, loaded, total) { 
+                    let uploadObj = this;                   
+                    let progress = parseInt((loaded/total)*100); 
+                    let index = null;
+                    let temp = null;
+                    _this.list.map((item,key)=>{
+                        if(item.id == uploadObj.creatId){
+                            index = key;
+                            temp = item;
+                            temp['progress'] = progress;
+                        }
+                    })
+                    if(index){
+                        _this.$set(_this.list, index, temp);
+                    }
+                     _this.$emit("progress",file,progress);
+                    
                 },
                 onPreview(previewFile) {
                 _this.$emit("preview", previewFile);
                 },
                 onSuccess(file, responseTxt) {
+                    this.stateDis(1)
+                    //成功状态                    
                 _this.$emit("success", file, responseTxt);
                 },
                 onFailure(file, responseTxt) {
+                    this.stateDis(2)
+                    //失败状态
                 _this.$emit("failure", file, responseTxt);
+                },
+                stateDis(Bool){
+                     let uploadObj = this;    
+                     let index = null;
+                     let temp = null;
+                     _this.list.map((item,key)=>{
+                        if(item.id == uploadObj.creatId){
+                            index = key;
+                            temp = item;
+                            temp['state'] = Bool;
+                        }
+                    })
+                    if(temp){
+                        _this.$set(_this.list, index, temp);
+                    }
                 }
             };
         },
-        upload(files){       
-            let opt = this.params();      
+        upload(files,creatId){       
+            let opt = this.params();     
+            opt.creatId = creatId;
             if(files){
                 let _this = this;   
                 let formData = new FormData;
                 let fileArr = Array.from(files);
+                console.log(fileArr)
                 opt.previewData = fileArr
+                console.log(fileArr)
                 for(let key in fileArr){
                     formData.append(fileArr[key].name,fileArr[key])
                 }

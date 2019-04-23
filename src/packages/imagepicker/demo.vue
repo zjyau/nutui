@@ -17,7 +17,7 @@
         <h4>自动上传</h4>
         <p>默认不开启自动上传功能，开启图片上传功能之后所选的图片会自动上传到服务器。<br><b>注意:点击删除仅仅删除本地展示，不支持删除服务器中已上传图片</b></p>
         <nut-imagepicker
-          :url="'https://my-json-server.typicode.com/linrufeng/demo/posts'"
+          :url="'https://my-json-server.typicode.com/typicode/demo/posts'"
          @success ="successMsg"
          @imgMsg="imgMsg" 
          @failure ="errorMsg"
@@ -29,7 +29,7 @@
          <p>关闭自动上传,每次添加完图片会返回当前所选择图片的列表信息 uploadfileList 然后自定义上传</p>
          <div class="demo6">
            <nut-imagepicker
-            :url="'https://my-json-server.typicode.com/linrufeng/demo/posts'"
+            :url="'https://my-json-server.typicode.com/typicode/demo/posts'"
             @imgMsg="imgMsg6"             
             @start="start6"
             @success="onSuccess6"
