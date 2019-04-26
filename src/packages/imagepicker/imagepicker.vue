@@ -132,15 +132,22 @@ export default {
 
                 fileArr = fileArr.filter((item,index) => index < self.max - self.list.length);
             }    
+            let idArrays = [];
             let creatId = Number(new Date());
+            console.log(file);
+            for(let i=0; i<file.length;i++){
+                creatId = creatId+1;
+                idArrays.push(creatId);
+            }
+            debugger;
             if (self.autoUpload) {//自动上传
-                this.upload(file,creatId);                     
+                this.upload(file,idArrays);                     
             }         
             fileArr.forEach((item,index) => {
                 let reader = new FileReader();
                 reader.onload = function(evt) {                    
                     self.list.push({
-                        id:creatId,
+                        id:idArrays[index],
                         src:evt.target.result,
                         progress:''
                     });                   
@@ -229,21 +236,19 @@ export default {
                 }
             };
         },
-        upload(files,creatId){       
-            let opt = this.params();     
-            opt.creatId = creatId;
+        upload(files,creatIds){    
             if(files){
-                let _this = this;   
-                let formData = new FormData;
-                let fileArr = Array.from(files);
-                console.log(fileArr)
-                opt.previewData = fileArr
-                console.log(fileArr)
-                for(let key in fileArr){
-                    formData.append(fileArr[key].name,fileArr[key])
-                }
-                opt.formData = formData;            
-                new Uploader(opt);
+                let _this = this;                   
+                let fileArr = Array.from(files);               
+                // opt.previewData = fileArr;             
+                for(let i=0;i<fileArr.length;i++){
+                    let opt = this.params();     
+                    let formData = new FormData;
+                    formData.append(fileArr[i].name,fileArr[i]);
+                    opt.formData = formData;  
+                    opt.creatId = creatIds[i];
+                    new Uploader(opt);
+                }                
             }   
         },
         batchUp(){
