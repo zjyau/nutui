@@ -58,7 +58,7 @@
             }
         }
     }
-    .progress,.statefall,.statesucess{
+    .progress{
         position:absolute;
         width:100%;
         height:100%;
@@ -69,8 +69,22 @@
         background: rgba(0, 0, 0, 0.15);
         color:#fff;
     }
+    .statefall,.statesucess{
+        position:absolute;
+        width:100%;
+        height:100%;
+    }
     .statefall{
         font-size:16px;
+        
+        .icon2{
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+        
     }
     .statesucess{
         background:none;
@@ -78,7 +92,7 @@
             position:absolute;
             width:16px;
             height: 16px;
-            top:5px;
+            bottom:5px;
             right:5px;
         }
     }
