@@ -10,10 +10,7 @@
         <nut-imagepicker @imgMsg="imgMsg" :max="4"></nut-imagepicker>
         <h4>多图选择</h4>
         <p>不限制选择图片的个数</p>
-        <nut-imagepicker @imgMsg="imgMsg" :ismultiple=true></nut-imagepicker>
-        <h4>长按删除</h4>
-        <p>默认是点击就删除，可以配置成长按删除</p>
-        <nut-imagepicker @imgMsg="imgMsg" delMode="longtap"></nut-imagepicker>
+        <nut-imagepicker @imgMsg="imgMsg" :ismultiple=true></nut-imagepicker>       
         <h4>自动上传</h4>
         <p>默认不开启自动上传功能，开启图片上传功能之后所选的图片会自动上传到服务器。<br><b>注意:点击删除仅仅删除本地展示，不支持删除服务器中已上传图片</b></p>
         <nut-imagepicker

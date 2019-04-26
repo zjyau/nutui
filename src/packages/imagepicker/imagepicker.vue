@@ -11,7 +11,10 @@
                         @touchmove="delMode == 'longtap' ? touchMove(item.id) : ''"
                         @touchend="delMode == 'longtap' ? touchEnd(item.id) : ''"
                 >    
-                  <img :src="item.src" alt="">        
+                  <img :src="item.src" alt="">      
+                 <slot @click="deleteImg(item.id)">
+                    <svg t="1556267525273" class="icon3" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3270" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M511.889995 128.745223c-201.852264 0-365.490182 163.637917-365.490182 365.490182 0 201.851241 163.637917 365.490182 365.490182 365.490182 201.851241 0 365.489158-163.637917 365.489158-365.490182C877.379153 292.382117 713.741235 128.745223 511.889995 128.745223L511.889995 128.745223zM688.519808 626.689089l-44.187385 44.175105L511.889995 538.409486 379.447567 670.864194l-44.187385-44.175105 132.442428-132.454708L335.260182 361.791953l44.151569-44.187385 132.465964 132.454708 132.454708-132.454708 44.187385 44.187385L556.0651 494.246661 688.519808 626.689089 688.519808 626.689089zM688.519808 626.689089" p-id="3271" fill="#d81e06"></path></svg>
+                 </slot>
                   <div class="progress" v-if="item.progress && item.progress != 100">
                       {{item.progress}}%</div>        
                     <div class="statefall" v-if="item.state ==2">                        
@@ -62,7 +65,7 @@ export default {
         },
         margin:{
             type:[String,Number],
-            default:5
+            default:10
         },
         max:{//允许上传的最大数量
             type:[Number,String],
