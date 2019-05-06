@@ -283,29 +283,11 @@ function MdToHtml(commomOption) {
         needCode:true,
         isbuild:true,
         hasMarkList:true
-    }
-    params = Object.assign(params,commomOption);    
-    // hashElement(params.entry, {
-    //     folders: { exclude: ['.*', 'node_modules', 'test_coverage'] },
-    //     files: { include: ['*.md'],exclude:['*.js','*.vue','*.scss','__test__'] }
-    // }).then(hash => {  
-    //     console.log(hash)
-        
-    // }) 
+    };
+    params = Object.assign(params,commomOption);     
     nodeFilelist.read(['./docs'],{"ext":'*.*'},function(res){
         console.log(res)
-    })
-    //检查输出路径
-    // ishasOutFile(params.output,()=>{
-    //      //获取所有的md 转html的结果
-    //     fileDisplay(params);
-    //     //文件监听 
-    //     if(params.isbuild){
-    //         filelisten(params);
-    //     }   
-        
-    // });
-   
+    });  
 }
 //用于后期的扩展暂时没想到
 MdToHtml.prototype.apply = function (compiler) {

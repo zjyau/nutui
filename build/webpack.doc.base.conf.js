@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const merge = require('webpack-merge');
 
-const mdtohtml = require('../scripts/mdToVue');
+// const mdtohtml = require('../scripts/mdToVue');
+const mdVue = require("../scripts/mdToVue.js");
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = merge(webpackBaseConf, {
@@ -23,23 +24,23 @@ module.exports = merge(webpackBaseConf, {
         ]
     },
     plugins: [
-        new mdtohtml({
+        new mdVue({
             entry:'./src',
             output:'./sites/doc/view/',
             template:'./doc-site/template.html',
             nav:'left',
             needCode:true,
             isbuild:isDev,
-            hasMarkList:false
+            hasMarkList:true
         }),
-        new mdtohtml({
+        new mdVue({
             entry:'./docs',
             output:'./sites/doc/page/',
             template:'./doc-site/template.html',
             nav:'left',
             needCode:false,
-            isbuild:isDev           
-        }),
+            isbuild:isDev 
+        }),        
         new HtmlWebpackPlugin({
             template: './sites/doc/index.html',
             filename: 'default.html'
