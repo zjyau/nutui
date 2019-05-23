@@ -145,7 +145,6 @@ export default {
                 creatId = creatId+1;
                 idArrays.push(creatId);
             }
-            debugger;
             if (self.autoUpload) {//自动上传
                 this.upload(file,idArrays);                     
             }         
