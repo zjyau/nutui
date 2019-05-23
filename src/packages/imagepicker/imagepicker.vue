@@ -189,7 +189,7 @@ export default {
                 clearInput: this.clearInput,
                 xmlError: this.xmlError,
                 typeError: this.typeError,
-                limitError: this.limitError,                
+                limitError: this.limitError,                        
                 creatId:'',
                 onStart() {
                 _this.$emit("start");
