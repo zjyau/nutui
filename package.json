@@ -1,0 +1,50 @@
+{
+  "name": "@nutui/nutui",
+  "version": "3.0.0",
+  "description": "一套轻量级移动端Vue组件库",
+  "typings": "dist/types/index.d.ts",
+  "main": "dist/nutui.js",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "dev": "nut-cli dev",
+    "build": "nut-cli build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdf2e/nutui.git"
+  },
+  "keywords": [
+    "nutui",
+    "nutui2",
+    "nutui3",
+    "vue",
+    "webpack",
+    "vue component",
+    "jdc",
+    "jdcfe"
+  ],
+  "author": "jdcfe",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "signale": "^1.4.0",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "browserslist": [
+    "> 3%",
+    "Android >= 4",
+    "iOS >= 8"
+  ]
+}

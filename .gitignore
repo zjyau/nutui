@@ -1,0 +1,6 @@
+node_modules/
+package-lock.json
+lib/plugin/cli/dist_cli/
+npm-debug.log
+.DS_Store
+yarn.lock
