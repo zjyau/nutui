@@ -7,40 +7,86 @@ import logger from "../util/logger";
 import path from 'path';
 import { VueLoaderPlugin } from 'vue-loader';
 
-
+const resolveCli = function (dir: string) {
+    return path.resolve(__dirname, '../../', dir)
+}
+const resolvePackage = function (dir: string) {
+    return path.resolve(__dirname, '../../../../../', dir)
+}
 
 const baseConfig: Webpack.Configuration = {
     stats: "errors-only",
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolvePackage('src'),
+        },
+        symlinks: false
+    },
     module: {
         rules: [
             {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            prependData: `@import "@/styles/index.scss"; `,
+                        },
+                    }
+                ],
+            },
+            {
                 test: /\.vue$/,
                 use: [
+                    'cache-loader',
                     {
                         loader: 'vue-loader',
                         options: {
-                            compilerOptions: {
-                                preserveWhitespace: false
+                            /*  preLoaders: {
+                                js: 'istanbul-instrumenter-loader?esModules=true'
+                             }, */
+                            loaders: {
+                                sass: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
                             }
+
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp)$/,
+                loader: 'url-loader',
+                include: [resolvePackage('src/assets/img'), resolveCli('site')],
+                options: {
+                    limit: 10000,
+                    name: 'img/[name].[ext]',
+                }
+            },
+            {
+                test: /\.svg$/,
+                loader: 'raw-loader',
+                include: [resolvePackage('src/assets/svg')]
             }
         ]
     },
     plugins: [
+        new VueLoaderPlugin(),
         new WebpackBar({
             name: 'Nut Cli',
             color: '#5396ff'
         }),
-        new VueLoaderPlugin()
     ]
 };
 const devConfig: Webpack.Configuration = {
     mode: 'development',
     entry: {
-        'nutui-mobile': path.resolve(__dirname, '../../../site/demo/app.js'),
-        'nutui-doc': path.resolve(__dirname, '../../../site/doc/app.js')
+        'nutui-mobile': resolveCli('site/demo/app.js'),
+        'nutui-doc': resolveCli('site/doc/app.js')
     },
     output: {
         publicPath: '/',
@@ -60,7 +106,7 @@ const devConfig: Webpack.Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../../../site/doc/index.html'),
+            template: resolveCli('site/doc/index.html'),
             filename: 'index.html',
             hash: true,//防止缓存
             inject: true,
@@ -72,8 +118,8 @@ const devConfig: Webpack.Configuration = {
             }
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../../../site/demo/index.html'),
-            filename: 'index.html',
+            template: resolveCli('site/demo/index.html'),
+            filename: 'demo.html',
             hash: true,//防止缓存
             inject: true,
             chunks: ['chunks', 'nutui-mobile'],
@@ -82,7 +128,8 @@ const devConfig: Webpack.Configuration = {
                 minifyCSS: true,
                 removeAttributeQuotes: true//压缩 去掉引号
             }
-        })
+        }),
+        new Webpack.HotModuleReplacementPlugin()
     ]
 
 }
@@ -91,14 +138,23 @@ const prodConfig: Webpack.Configuration = {
 }
 
 function dev() {
-
     const compiler = Webpack(merge(baseConfig, devConfig));
     const devServerOptions = {
         open: false,
         host: '0.0.0.0',
         stats: 'errors-only',
         publicPath: '/',
-        disableHostCheck: true
+        disableHostCheck: true,
+        hot: true,
+        hotOnly: true,
+        inline: true,
+        overlay: {
+            warnings: true,
+            errors: true
+        },
+        watchOptions: {
+            ignored: /node_modules/
+        }
     };
     const server = new WebpackDevServer(compiler, devServerOptions);
 

@@ -7,12 +7,12 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "nut-cli",
+            "name": "nutui-cli",
             "console":"integratedTerminal",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/lib/plugin/cli/dist_cli/src/bin/index.js",
+            "program": "${workspaceFolder}/lib/plugin/cli/dist_cli/bin/index.js",
             "args": [
                 "dev"
             ],
