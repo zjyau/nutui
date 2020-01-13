@@ -46,7 +46,10 @@
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.2.2",
-    "webpackbar": "^4.0.0"
+    "webpackbar": "^4.0.0",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "husky": "^3.0.0"
   },
   "devDependencies": {
     "@types/html-webpack-plugin": "^3.2.1",
