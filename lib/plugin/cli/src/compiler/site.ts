@@ -47,9 +47,6 @@ const baseConfig: Webpack.Configuration = {
                     {
                         loader: 'vue-loader',
                         options: {
-                            /*  preLoaders: {
-                                js: 'istanbul-instrumenter-loader?esModules=true'
-                             }, */
                             loaders: {
                                 sass: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
                             }
@@ -57,6 +54,11 @@ const baseConfig: Webpack.Configuration = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(js|ts)$/,
+                include: [resolvePackage('src')],
+                use: ['cache-loader', 'babel-loader']
             },
             {
                 test: /\.(png|jpe?g|gif|webp)$/,
@@ -77,7 +79,7 @@ const baseConfig: Webpack.Configuration = {
     plugins: [
         new VueLoaderPlugin(),
         new WebpackBar({
-            name: 'Nut Cli',
+            name: 'NutUI Cli',
             color: '#5396ff'
         }),
     ]
