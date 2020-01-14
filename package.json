@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "dev": " nutui-cli dev",
-    "build": "nutui-cli build"
+    "build": "nutui-cli build",
+    "create": "nutui-cli create"
   },
   "repository": {
     "type": "git",
@@ -37,8 +38,7 @@
   "peerDependencies": {
     "vue": "^2.6.10"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "browserslist": [
     "> 3%",
     "Android >= 4",
