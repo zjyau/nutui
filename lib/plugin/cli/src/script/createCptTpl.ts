@@ -16,7 +16,7 @@ const {default: generate} = require('@babel/generator');
 const PKGS = 'packages';
 const emptyLine = '/*hr*/';
 const nutMainFile = ROOT_PACKAGE_PATH("src/nutui.js");
-const nutTypings = path.join(__dirname,"nutui.d.ts");
+const nutTypings = ROOT_PACKAGE_PATH("types/nutui.d.ts");
 
 let sorts = [...conf.sorts];
 var newCpt = {
@@ -143,6 +143,33 @@ export default {
     });
 }
 
+function createDemo() {
+    return new Promise((resolve, reject) => {
+        const nameLc = newCpt.name.toLowerCase();
+        let content = `<template>
+    <div class="container"></div>
+</template>
+<script>
+export default {
+    data() {
+        return {};
+    },
+    methods: {
+    }
+}
+</script>`;
+        const dirPath = path.join(ROOT_PACKAGE_PATH("src/packages/"+nameLc));
+        const filePath = path.join(dirPath, `demo.vue`);
+        if (!fs.existsSync(dirPath)) {
+            fs.mkdirSync(dirPath);
+        }
+        fs.writeFile(filePath, content, (err:any) => {
+            if (err) throw err;
+            resolve(`生成demo.vue文件成功`);
+        });
+    });
+}
+
 function createScss() {
     return new Promise((resolve, reject) => {
         const nameLc = newCpt.name.toLowerCase();
@@ -160,6 +187,7 @@ function createScss() {
         });
     });
 }
+
 
 function createDir() {
     const nameLc = newCpt.name.toLowerCase();
@@ -195,30 +223,9 @@ function transformCodes(codes:any, visitor:any) {
     return code;
 }
 
-// function insertImports(pkg:any) {
-//     const lowername = pkg.toLowerCase();
-//     this.insertBefore(
-//         t.importDeclaration([
-//             t.importDefaultSpecifier(t.identifier(pkg))
-//         ], 
-//         t.stringLiteral(`./packages/${lowername}/index.js`))
-//     );
-//     this.insertBefore(
-//         t.importDeclaration([], t.stringLiteral(`./packages/${lowername}/${lowername}.scss`))
-//     );
-//     this.insertBefore(t.stringLiteral(emptyLine));
-// }
-
 function createProp(pkg:any) {
     return t.objectProperty(t.identifier(pkg), t.identifier(pkg));
 }
-
-// function addToExport(pkg:any, init:any) {
-//     init.properties.push(createProp(pkg));
-//     this.replaceWith(t.variableDeclaration('const', [
-//         t.variableDeclarator(t.identifier(PKGS), init)
-//     ]));
-// }
 
 function addPkgDeclare(pkg:string) {
     const codes = fs.readFileSync(nutMainFile).toString();
@@ -245,11 +252,11 @@ function addPkgDeclare(pkg:string) {
                                 );
                                 p.insertBefore(t.stringLiteral(emptyLine));
                                 //addToExport.call(p, pkg, init);
+                             
                                 init.properties.push(createProp(pkg));
                                 p.replaceWith(t.variableDeclaration('const', [
                                     t.variableDeclarator(t.identifier(PKGS), init)
                                 ]));
-
                                 p.insertAfter(t.stringLiteral(emptyLine));
                                 p.stop();
                                 break;
@@ -272,7 +279,9 @@ function createPkgDeclare(pkg:any) {
 }
 
 function createNew() {
-    if (newCpt.type == 'method') return;
+    if (newCpt.type == 'method') return new Promise(function(resolve,reject){
+        resolve()
+    });
     var createIndexJs=new Promise((resolve, reject) => {
         const nameLc = newCpt.name.toLowerCase();
         let content = `import ${newCpt.name} from './${nameLc}.vue';
@@ -308,9 +317,11 @@ export default ${newCpt.name}`;
             return createVue();
         } else {
             return;
-        }
+        }  
     }).then(() => {
         return createScss();
+    }).then(() => {
+        return createDemo();
     }).then(() => {
         return addToPackageJson();
     }).then(() => {
