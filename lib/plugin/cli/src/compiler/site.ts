@@ -4,23 +4,15 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackBar from 'webpackbar';
 import merge from 'webpack-merge';
 import logger from "../util/logger";
-import path from 'path';
 import { VueLoaderPlugin } from 'vue-loader';
-
-const resolveCli = function (dir: string) {
-    return path.resolve(__dirname, '../../', dir)
-}
-const resolvePackage = function (dir: string) {
-    return path.resolve(__dirname, '../../../../../', dir)
-}
-
+import {ROOT_CLI_PATH, ROOT_PACKAGE_PATH} from '../common/dic';
 const baseConfig: Webpack.Configuration = {
     stats: "errors-only",
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@': resolvePackage('src'),
+            '@': ROOT_PACKAGE_PATH('src'),
         },
         symlinks: false
     },
@@ -57,13 +49,13 @@ const baseConfig: Webpack.Configuration = {
             },
             {
                 test: /\.(js|ts)$/,
-                include: [resolvePackage('src')],
+                include: [ROOT_PACKAGE_PATH('src')],
                 use: ['cache-loader', 'babel-loader']
             },
             {
                 test: /\.(png|jpe?g|gif|webp)$/,
                 loader: 'url-loader',
-                include: [resolvePackage('src/assets/img'), resolveCli('site')],
+                include: [ROOT_PACKAGE_PATH('src/assets/img'), ROOT_CLI_PATH('site')],
                 options: {
                     limit: 10000,
                     name: 'img/[name].[ext]',
@@ -72,7 +64,7 @@ const baseConfig: Webpack.Configuration = {
             {
                 test: /\.svg$/,
                 loader: 'raw-loader',
-                include: [resolvePackage('src/assets/svg')]
+                include: [ROOT_PACKAGE_PATH('src/assets/svg')]
             }
         ]
     },
@@ -87,8 +79,8 @@ const baseConfig: Webpack.Configuration = {
 const devConfig: Webpack.Configuration = {
     mode: 'development',
     entry: {
-        'nutui-mobile': resolveCli('site/demo/app.js'),
-        'nutui-doc': resolveCli('site/doc/app.js')
+        'nutui-mobile': ROOT_CLI_PATH('site/demo/app.js'),
+        'nutui-doc': ROOT_CLI_PATH('site/doc/app.js')
     },
     output: {
         publicPath: '/',
@@ -108,7 +100,7 @@ const devConfig: Webpack.Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: resolveCli('site/doc/index.html'),
+            template: ROOT_CLI_PATH('site/doc/index.html'),
             filename: 'index.html',
             hash: true,//防止缓存
             inject: true,
@@ -120,7 +112,7 @@ const devConfig: Webpack.Configuration = {
             }
         }),
         new HtmlWebpackPlugin({
-            template: resolveCli('site/demo/index.html'),
+            template: ROOT_CLI_PATH('site/demo/index.html'),
             filename: 'demo.html',
             hash: true,//防止缓存
             inject: true,
