@@ -331,9 +331,6 @@ export default ${newCpt.name}`;
     });
 }
 
-
-init()
-
 export default async function createComponent() {
    init()
 }
