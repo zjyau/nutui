@@ -3,7 +3,7 @@
         <span 
             @click="reduce()" 
             :class="{'nut-stepper-grey': isGray}"
-            v-html="require('../../assets/svg/minus.svg').default">
+            v-html="require('../../assets/svg/minus.svg')">
         </span>
         <input 
          type="number" 
@@ -45,7 +45,7 @@
         <span 
             @click="add()" 
             :class="{'nut-stepper-grey': max&&(Number(num) > max - step)}" 
-            v-html="require('../../assets/svg/plus.svg').default">
+            v-html="require('../../assets/svg/plus.svg')">
         </span>
     </div>
 </template>
