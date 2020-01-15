@@ -5,6 +5,9 @@ import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
 
 export const baseConfig: Webpack.Configuration = {
     stats: "errors-only",
+    output: {
+        publicPath: './',//相对路径
+    },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         alias: {

@@ -11,8 +11,8 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
         'nutui-doc': ROOT_CLI_PATH('site/doc/app.js')
     },
     output: {
-        publicPath: '/',
-        filename: '[name].js',
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].chunk.js'
     },
     optimization: {
         splitChunks: {
@@ -21,7 +21,7 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
                     chunks: 'all',
                     minChunks: 2,
                     minSize: 0,
-                    name: 'chunks'
+                    name: 'common_chunks'
                 }
             }
         }
@@ -32,7 +32,7 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
             filename: 'index.html',
             hash: true,//防止缓存
             inject: true,
-            chunks: ['chunks', 'nutui-doc'],
+            chunks: ['common_chunks', 'nutui-doc'],
             minify: {
                 minifyJS: true,
                 minifyCSS: true,
@@ -44,7 +44,7 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
             filename: 'demo.html',
             hash: true,//防止缓存
             inject: true,
-            chunks: ['chunks', 'nutui-mobile'],
+            chunks: ['common_chunks', 'nutui-mobile'],
             minify: {
                 minifyJS: true,
                 minifyCSS: true,
