@@ -15,11 +15,24 @@
     "dev": " nutui-cli dev",
     "build": "nutui-cli build",
     "build:site": "nutui-cli build-site",
-    "create": "nutui-cli create"
+    "create": "nutui-cli create",
+    "lint": "nutui-cli lint",
+    "test": "nutui-cli test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jdf2e/nutui.git"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "./eslint-config.js"
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "./stylelint-config.js"
+    ]
   },
   "keywords": [
     "nutui",
@@ -42,7 +55,10 @@
   "peerDependencies": {
     "vue": "^2.6.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-plugin-vue": "^6.1.2",
+    "stylelint-config-standard": "^19.0.0"
+  },
   "browserslist": [
     "> 3%",
     "Android >= 4",
