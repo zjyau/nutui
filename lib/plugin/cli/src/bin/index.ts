@@ -3,6 +3,7 @@
 import program from 'commander';
 import { dev } from '../commands/dev';
 import { build } from '../commands/build';
+import { lint } from '../commands/lint';
 import { buildSite } from '../commands/build-site';
 import { createComponent } from '../commands/createComponent';
 import { commitLint } from '../commands/commitLint';
@@ -37,7 +38,7 @@ program
 
     .command('lint')
     .description('运行stylelint和eslint')
-    .action(test)
+    .action(lint)
 
     .command('release')
     .description('发布版本...待开发')
