@@ -2,8 +2,6 @@ import Webpack from 'webpack';
 import merge from 'webpack-merge';
 import { devConfig } from './dev.config';
 import { ROOT_PACKAGE_PATH } from '../common/dic';
-
-console.log()
 export const prodConfig: Webpack.Configuration = merge(devConfig, {
     mode: 'production',
     output: {

@@ -54,7 +54,7 @@ function build() {
                 }
             }
             // 处理完成
-            logger.success('build success');
+            logger.success('build site success!');
         });
     });
 }

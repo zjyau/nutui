@@ -2,7 +2,10 @@ import Webpack from 'webpack';
 import WebpackBar from 'webpackbar';
 import { VueLoaderPlugin } from 'vue-loader';
 import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
-
+import { isDev } from '../util';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import logger from '../util/logger';
+logger.info(MiniCssExtractPlugin.loader)
 export const baseConfig: Webpack.Configuration = {
     stats: "errors-only",
     output: {
@@ -21,7 +24,7 @@ export const baseConfig: Webpack.Configuration = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    'style-loader',
+                    isDev() ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
                     'postcss-loader',
                     {
@@ -74,8 +77,11 @@ export const baseConfig: Webpack.Configuration = {
     },
     plugins: [
         new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: isDev ? 'css/[name].css' : 'css/[name].[hash].css'
+        }),
         new WebpackBar({
-            name: 'NutUI Cli',
+            name: '🚀 NutUI Cli',
             color: '#5396ff'
         }),
     ]
