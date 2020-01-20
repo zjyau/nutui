@@ -3,7 +3,8 @@ import merge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { baseConfig } from './base.config';
 import { ROOT_CLI_PATH } from '../common/dic';
-
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { isDev } from '../util';
 export const devConfig: Webpack.Configuration = merge(baseConfig, {
     mode: 'development',
     entry: {
@@ -27,6 +28,9 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
         }
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: isDev() ? '[name].css' : 'css/[name].[hash].css'
+        }),
         new HtmlWebpackPlugin({
             template: ROOT_CLI_PATH('site/doc/index.html'),
             filename: 'index.html',

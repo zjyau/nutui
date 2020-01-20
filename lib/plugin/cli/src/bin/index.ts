@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+import { setNodeEnv } from '../util';
+process.argv[2] === 'dev' ? setNodeEnv('development') : setNodeEnv('production');
 import program from 'commander';
 import { dev } from '../commands/dev';
 import { build } from '../commands/build';
@@ -12,7 +13,7 @@ import { release } from '../commands/npmPublish';
 import { ROOT_CLI_PATH } from '../common/dic';
 
 const config = require(ROOT_CLI_PATH('package.json'));
-program.version(`@nut/cli ${config.version}`, '-v', '--version')
+program.version(`@nutui/cli ${config.version}`, '-v', '--version')
 
 program.command('dev')
     .description('本地调试运行官网和Demo示例')
@@ -31,7 +32,7 @@ program.command('create')
     .action(createComponent)
 
 program.command('commit-lint')
-    .description('git commit 提交校验配置文件')
+    .description('获取校验commit message 的配置文件')
     .action(commitLint)
 
 program.command('test')
@@ -45,7 +46,7 @@ program.command('lint')
 program.command('release')
     .description('发布版本...待开发')
     .action(release)
-    
+
 program.parse(process.argv);
 
 

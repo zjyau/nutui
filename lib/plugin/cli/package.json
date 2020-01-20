@@ -1,8 +1,15 @@
 {
   "name": "@nutui/cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "nutui cli",
   "main": "./dist_cli/bin/index.js",
+  "files": [
+    "dist_cli",
+    "README.md",
+    "package.json",
+    "site",
+    "README.md"
+  ],
   "bin": {
     "nutui-cli": "./dist_cli/bin/index.js"
   },
