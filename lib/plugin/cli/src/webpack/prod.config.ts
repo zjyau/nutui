@@ -7,8 +7,8 @@ export const prodConfig: Webpack.Configuration = merge(devConfig, {
     mode: 'production',
     output: {
         path: ROOT_PACKAGE_PATH('dist/sites'),
-        filename: 'js/[name].[hash].bundle.js',
-        chunkFilename: 'js/[name].[chunkhash].chunk.js'
+        filename: 'js/[name].[hash].bundle.min.js',
+        chunkFilename: 'js/[name].[chunkhash].chunk.min.js'
     },
     optimization: {
         minimize: true
