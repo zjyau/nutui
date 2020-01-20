@@ -27,7 +27,7 @@ program.command('build-site')
     .description('构建官网和Demo示例，进行官网发布')
     .action(buildSite)
 
-program.command('create')
+program.command('add')
     .description('新增组件使用该命令')
     .action(createComponent)
 

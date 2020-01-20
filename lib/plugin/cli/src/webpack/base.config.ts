@@ -75,9 +75,8 @@ export const baseConfig: Webpack.Configuration = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        
         new WebpackBar({
-            name: 'NutUI ClI 🌈🌈🌈',
+            name: 'NutUI ClI',
             color: '#5396ff'
         }),
     ]

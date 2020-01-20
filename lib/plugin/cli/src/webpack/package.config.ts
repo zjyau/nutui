@@ -3,18 +3,18 @@ import merge from 'webpack-merge';
 import { ROOT_PACKAGE_PATH } from '../common/dic';
 import { baseConfig } from './base.config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 export function packageConfig(isMinimize: boolean) {
-    return merge(baseConfig, {
+    const _packageConfig: Webpack.Configuration = {
         mode: 'production',
+        devtool: 'source-map',
         entry: {
             nutui: './src/nutui.js',
         },
         output: {
             path: ROOT_PACKAGE_PATH('dist/'),
-            filename: isMinimize ? 'nutui.min.js' : 'nutui.js',
-            library: 'nutui',
+            filename: isMinimize ? '[name].min.js' : '[name].js',
+            library: '[name]',
             libraryTarget: 'umd',
             umdNamedDefine: true,
             // https://stackoverflow.com/questions/49111086/webpack-4-universal-library-target
@@ -34,8 +34,10 @@ export function packageConfig(isMinimize: boolean) {
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: '[name].css'
+                filename: isMinimize ? '[name].min.css' : '[name].css'
             })
         ]
-    } as Webpack.Configuration)
+    };
+    isMinimize && _packageConfig.plugins?.push(new OptimizeCSSAssetsPlugin())
+    return merge(baseConfig, _packageConfig);
 }

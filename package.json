@@ -15,7 +15,7 @@
     "dev": " nutui-cli dev",
     "build": "nutui-cli build",
     "build:site": "nutui-cli build-site",
-    "create": "nutui-cli create",
+    "add": "nutui-cli add",
     "lint": "nutui-cli lint",
     "test": "nutui-cli test"
   },

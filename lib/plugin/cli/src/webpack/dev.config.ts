@@ -29,7 +29,7 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: isDev() ? '[name].css' : 'css/[name].[hash].css'
+            filename: isDev() ? '[name].css' : 'css/[name].[hash].min.css'
         }),
         new HtmlWebpackPlugin({
             template: ROOT_CLI_PATH('site/doc/index.html'),
