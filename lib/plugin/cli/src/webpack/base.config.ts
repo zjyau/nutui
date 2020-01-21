@@ -4,6 +4,7 @@ import { VueLoaderPlugin } from 'vue-loader';
 import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
 import { isDev } from '../util';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const config = require(ROOT_PACKAGE_PATH('package.json'));
 export const baseConfig: Webpack.Configuration = {
     stats: "errors-only",
     output: {
@@ -74,6 +75,11 @@ export const baseConfig: Webpack.Configuration = {
         ]
     },
     plugins: [
+        new Webpack.BannerPlugin({
+            banner: `NutUI v${config.version} - [filebase], [hash], ${new Date()}
+(c) 2017-2020 JDC
+Released under the MIT License.`
+        }),
         new VueLoaderPlugin(),
         new WebpackBar({
             name: 'NutUI ClI',

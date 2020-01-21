@@ -9,7 +9,7 @@ export function packageConfig(isMinimize: boolean) {
         mode: 'production',
         devtool: 'source-map',
         entry: {
-            nutui: './src/nutui.js',
+            nutui: ROOT_PACKAGE_PATH('src/nutui.js'),
         },
         output: {
             path: ROOT_PACKAGE_PATH('dist/'),
