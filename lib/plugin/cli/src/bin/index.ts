@@ -6,6 +6,7 @@ import { dev } from '../commands/dev';
 import { build } from '../commands/build';
 import { lint } from '../commands/lint';
 import { buildSite } from '../commands/build-site';
+import { clean } from '../commands/clean';
 import { createComponent } from '../commands/createComponent';
 import { commitLint } from '../commands/commitLint';
 import { test } from '../commands/test';
@@ -26,6 +27,10 @@ program.command('build')
 program.command('build-site')
     .description('构建官网和Demo示例，进行官网发布')
     .action(buildSite)
+
+program.command('clean')
+    .description('清空打包目录')
+    .action(clean)
 
 program.command('add')
     .description('新增组件使用该命令')

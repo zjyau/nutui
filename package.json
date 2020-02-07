@@ -15,6 +15,7 @@
     "dev": " nutui-cli dev",
     "build": "nutui-cli build",
     "build:site": "nutui-cli build-site",
+    "clean": "nutui-cli clean",
     "add": "nutui-cli add",
     "lint": "nutui-cli lint",
     "test": "nutui-cli test"
