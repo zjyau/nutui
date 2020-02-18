@@ -2,7 +2,7 @@ import Webpack from 'webpack';
 import WebpackBar from 'webpackbar';
 import { VueLoaderPlugin } from 'vue-loader';
 import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
-import { isDev } from '../util';
+import { isDev, isTest } from '../util';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const config = require(ROOT_PACKAGE_PATH('package.json'));
 export const baseConfig: Webpack.Configuration = {
@@ -20,6 +20,7 @@ export const baseConfig: Webpack.Configuration = {
     },
     module: {
         rules: [
+            isTest ? {} :
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
