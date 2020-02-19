@@ -1,4 +1,5 @@
 
+
 import { ROOT_PACKAGE_PATH } from '../common/dic';
 import { packageConfig } from './package.config';
 import merge from 'webpack-merge';
@@ -15,21 +16,41 @@ module.exports =  merge(packageConfig(false), {
             },
             {
                 test: /\.css$/,
-                use: [{ loader: 'style!css' }]
+                use: [
+                    'style-loader',
+                    'css-loader', 
+                ]
             },
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!sass-loader'
-            },
-            {
-                test: /\.scss$/,
-                use: [{
-                    loader: 'sass-loader',
-                    options: {
-                        prependData: `@import "@/styles/index.scss"; `,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: { 
+                            prependData: `@import "@/styles/index.scss"; `
+                        }
                     }
-                }]
+                ]
             }
+            // {
+            //     test: /\.css$/,
+            //     use: [{ loader: 'style!css' }]
+            // },
+            // {
+            //     test: /\.scss$/,
+            //     loader: 'style-loader!css-loader!sass-loader'
+            // },
+            // {
+            //     test: /\.scss$/,
+            //     use: [{
+            //         loader: 'sass-loader',
+            //         options: {
+            //             prependData: `@import "@/styles/index.scss"; `,
+            //         }
+            //     }]
+            // }
         ],
     },
     devtool: 'inline-cheap-module-source-map',
