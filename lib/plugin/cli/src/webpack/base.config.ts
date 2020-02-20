@@ -20,7 +20,7 @@ export const baseConfig: Webpack.Configuration = {
     },
     module: {
         rules: [
-            isTest ? {} :
+            isTest() ? {} :
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
