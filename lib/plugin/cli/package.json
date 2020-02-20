@@ -14,9 +14,7 @@
     "nutui-cli": "./dist_cli/bin/index.js"
   },
   "scripts": {
-    "dev": "tsc --watch --incremental",
-    "create": "node dist_cli/script/createCptTpl.js",
-    "test": "cross-env NODE_ENV=test nyc mocha-webpack --webpack-config dist_cli/webpack/test.config.js  --require test/setup.ts ../../../src/packages/*/__test__/**.spec.js"
+    "dev": "tsc --watch --incremental"
   },
   "keywords": [
     "nutui/cli"
@@ -96,16 +94,5 @@
     "webpack-node-externals": "1.7.2",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0"
-  },
-  "nyc": {
-    "include": [
-      "../../../src/packages/**/*.vue"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "instrument": false,
-    "sourceMap": false
   }
 }
