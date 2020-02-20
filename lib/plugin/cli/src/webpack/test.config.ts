@@ -34,23 +34,6 @@ module.exports =  merge(packageConfig(false), {
                     }
                 ]
             }
-            // {
-            //     test: /\.css$/,
-            //     use: [{ loader: 'style!css' }]
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     loader: 'style-loader!css-loader!sass-loader'
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     use: [{
-            //         loader: 'sass-loader',
-            //         options: {
-            //             prependData: `@import "@/styles/index.scss"; `,
-            //         }
-            //     }]
-            // }
         ],
     },
     devtool: 'inline-cheap-module-source-map',
