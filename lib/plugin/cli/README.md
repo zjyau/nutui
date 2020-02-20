@@ -31,6 +31,10 @@ NutUI ClI 致力于将 Vue 生态中的工具基础标准化。它确保了各�
 
 运行stylelint和eslint 进行格式化代码，确保规范
 
+### test
+
+运行单元测试
+
 
 
 
