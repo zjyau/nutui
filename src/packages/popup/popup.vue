@@ -14,10 +14,15 @@
 </template>
 <script>
 import Vue from "vue";
-import Mask from "./mask.vue";
-
+import nutPopupMask from "./mask.vue";
+import nutIcon from "../icon/icon.vue";
+import "../icon/icon.scss";
 export default {
   name: "nut-popup",
+  components: {
+    [nutIcon.name]: nutIcon,
+    [nutPopupMask.name] : nutPopupMask
+  },
   props: {
     value: Boolean,
     position: {
