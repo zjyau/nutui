@@ -9,3 +9,4 @@ dist/
 coverage/
 lib/plugin/cli/sites/doc/view
 lib/plugin/cli/sites/doc/page
+cache/
