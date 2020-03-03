@@ -10,3 +10,5 @@ export const ROOT_PACKAGE_PATH = function (dir: string) {
 }
 // build dist 目录
 export const DIST_DIR = ROOT_PACKAGE_PATH('dist');
+// markdown cache  目录
+export const CACHE_DIR = ROOT_PACKAGE_PATH('cache');
