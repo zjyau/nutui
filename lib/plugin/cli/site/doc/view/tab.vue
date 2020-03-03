@@ -8,10 +8,10 @@
     &lt;nut-<span class="hljs-literal">tab</span>-panel tabTitle=<span class="hljs-string">"页签2"</span>&gt;页签<span class="hljs-number">2</span>&lt;/nut-<span class="hljs-literal">tab</span>-panel&gt;
     &lt;nut-<span class="hljs-literal">tab</span>-panel tabTitle=<span class="hljs-string">"页签3"</span>&gt;页签<span class="hljs-number">3</span>&lt;/nut-<span class="hljs-literal">tab</span>-panel&gt;
 &lt;/nut-<span class="hljs-literal">tab</span>&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {
-  <span class="hljs-attribute">methods</span>: {
-      tabSwitch:<span class="hljs-built_in">function</span>(index,event){
-        console.<span class="hljs-built_in">log</span>(index+<span class="hljs-string">'--'</span>+event.target);
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
+  methods: {
+      tabSwitch:function(index,event){
+        console.log(index+<span class="hljs-string">'--'</span>+event.target);
       }
   }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
@@ -61,21 +61,21 @@
   }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>禁止选中，默认选中某个标签</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-literal">tab</span> 
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-tab 
   :defIndex=<span class="hljs-string">"1"</span>
-  <span class="hljs-built_in">class</span>=<span class="hljs-string">"customer-css"</span> 
-  @<span class="hljs-literal">tab</span>-switch=<span class="hljs-string">"tabSwitch"</span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"customer-css"</span> 
+  @tab-<span class="hljs-keyword">switch</span>=<span class="hljs-string">"tabSwitch"</span>
   :contentShow=<span class="hljs-string">"true"</span>
 &gt;
-    &lt;nut-<span class="hljs-literal">tab</span>-panel 
-      v-<span class="hljs-keyword">for</span>='value <span class="hljs-keyword">in</span> disableTabs' 
-      v-bind:key=<span class="hljs-string">"value.tabTitle"</span> 
-      :tabTitle=<span class="hljs-string">"value.tabTitle"</span> 
-      :disable = <span class="hljs-string">"value.disable"</span> 
-      v-html=<span class="hljs-string">"value.content"</span>
-    &gt;
-    &lt;/nut-<span class="hljs-literal">tab</span>-panel&gt;
-&lt;/nut-<span class="hljs-literal">tab</span>&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nut-tab-panel</span> 
+      <span class="hljs-attr">v-for</span>=<span class="hljs-string">'value in disableTabs'</span> 
+      <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"value.tabTitle"</span> 
+      <span class="hljs-attr">:tabTitle</span>=<span class="hljs-string">"value.tabTitle"</span> 
+      <span class="hljs-attr">:disable</span> = <span class="hljs-string">"value.disable"</span> 
+      <span class="hljs-attr">v-html</span>=<span class="hljs-string">"value.content"</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">nut-tab-panel</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">nut-tab</span>&gt;</span></span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript">export default {
   data() {
     return {

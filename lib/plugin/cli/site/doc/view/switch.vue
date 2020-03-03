@@ -20,15 +20,15 @@
   }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>自定义尺寸</h2><p>内置 <strong>small</strong>，<strong>base</strong>，<strong>large</strong> 三种规格供使用。</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-built_in">switch</span> 
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-keyword">switch</span> 
   :active=<span class="hljs-string">"true"</span> 
   <span class="hljs-built_in">size</span>=<span class="hljs-string">"small"</span>
 &gt;
-&lt;nut-<span class="hljs-built_in">switch</span> 
+&lt;nut-<span class="hljs-keyword">switch</span> 
   :active=<span class="hljs-string">"true"</span> 
   <span class="hljs-built_in">size</span>=<span class="hljs-string">"base"</span>
 &gt;
-&lt;nut-<span class="hljs-built_in">switch</span> 
+&lt;nut-<span class="hljs-keyword">switch</span> 
   :active=<span class="hljs-string">"true"</span> 
   <span class="hljs-built_in">size</span>=<span class="hljs-string">"large"</span>
 &gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

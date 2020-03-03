@@ -3,21 +3,21 @@
                                 <div v-if="content" class="layer">
                                 <pre><span class="close-box" @click="closelayer"></span><div v-html="content"></div></pre>
                                 </div><h1>InfiniteLoading 无限加载<i class="qrcode"><a :href="demourl"><span>请使用手机扫码体验</span><img :src="codeurl" alt=""></a></i></h1><p>列表滚动到底部自动加载更多数据。</p>
-<h2>基本用法</h2><hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-infiniteloading 
-    @loadmore=<span class="hljs-string">"onInfinite"</span> 
-    :<span class="hljs-keyword">is</span>-show-mod=<span class="hljs-string">"true"</span> 
-    :has-more=<span class="hljs-string">"isHasMore"</span> 
-    :<span class="hljs-keyword">is</span>-loading=<span class="hljs-string">"isLoading"</span> 
-    :threshold=<span class="hljs-string">"200"</span>
-&gt;
-    &lt;ul <span class="hljs-keyword">class</span>=<span class="hljs-string">"list"</span> &gt;
-        &lt;li 
-            <span class="hljs-keyword">class</span>=<span class="hljs-string">"list-item"</span> 
-            v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"(item, index) of data"</span> 
-            :key=<span class="hljs-string">"item"</span>
-        &gt;我是测试数据{{index + <span class="hljs-number">1</span>}}&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/nut-infiniteloading&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<h2>基本用法</h2><hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nut-infiniteloading</span> 
+    @<span class="hljs-attr">loadmore</span>=<span class="hljs-string">"onInfinite"</span> 
+    <span class="hljs-attr">:is-show-mod</span>=<span class="hljs-string">"true"</span> 
+    <span class="hljs-attr">:has-more</span>=<span class="hljs-string">"isHasMore"</span> 
+    <span class="hljs-attr">:is-loading</span>=<span class="hljs-string">"isLoading"</span> 
+    <span class="hljs-attr">:threshold</span>=<span class="hljs-string">"200"</span>
+&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"list"</span> &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> 
+            <span class="hljs-attr">class</span>=<span class="hljs-string">"list-item"</span> 
+            <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) of data"</span> 
+            <span class="hljs-attr">:key</span>=<span class="hljs-string">"item"</span>
+        &gt;</span>我是测试数据</span><span class="hljs-template-variable">{{index + 1}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-infiniteloading</span>&gt;</span></span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript">export <span class="hljs-keyword">default</span> {
     <span class="hljs-keyword">data</span>() {
         <span class="hljs-keyword">return</span> {

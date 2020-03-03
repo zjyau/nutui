@@ -46,9 +46,9 @@
 <h2>图片弹窗</h2><p><strong>type</strong> 值为 <strong>image</strong> 时为图片弹窗，需要配置一张图片，可带链接（非必须）。默认展示关闭按钮。点击图片触发 <strong>onClickImageLink</strong> 事件，返回<strong>false</strong>可阻止默认的跳转链接行为。</p>
 <hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">this</span>.$dialog({
   <span class="hljs-attr">type</span>:<span class="hljs-string">"image"</span>, <span class="hljs-comment">//设置弹窗类型为”图片弹窗“</span>
-  link:<span class="hljs-string">"http://m.jd.com"</span>, <span class="hljs-comment">//点击图片跳转的Url</span>
-  imgSrc:<span class="hljs-string">"https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/4875/23/1968/285655/5b9549eeE4997a18c/070eaf5bddf26be8.jpg"</span>, <span class="hljs-comment">//图片Url</span>
-  onClickImageLink:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">//图片点击事件，默认行为是跳转Url</span>
+  <span class="hljs-attr">link</span>:<span class="hljs-string">"http://m.jd.com"</span>, <span class="hljs-comment">//点击图片跳转的Url</span>
+  <span class="hljs-attr">imgSrc</span>:<span class="hljs-string">"https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/4875/23/1968/285655/5b9549eeE4997a18c/070eaf5bddf26be8.jpg"</span>, <span class="hljs-comment">//图片Url</span>
+  <span class="hljs-attr">onClickImageLink</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">//图片点击事件，默认行为是跳转Url</span>
     <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>); <span class="hljs-comment">//this指向该Dialog实例</span>
     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;  <span class="hljs-comment">//返回false可阻止默认的链接跳转行为</span>
   }

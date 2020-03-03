@@ -3,9 +3,9 @@
                                 <div v-if="content" class="layer">
                                 <pre><span class="close-box" @click="closelayer"></span><div v-html="content"></div></pre>
                                 </div><h1>Toast 吐司<i class="qrcode"><a :href="demourl"><span>请使用手机扫码体验</span><img :src="codeurl" alt=""></a></i></h1><p>轻提示。</p>
-<h2>基本用法</h2><hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-built_in">default</span> {
+<h2>基本用法</h2><hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
   mounted() {
-    <span class="hljs-keyword">this</span>.$toast.<span class="hljs-built_in">text</span>(<span class="hljs-string">'提示信息'</span>);
+    this.<span class="hljs-variable">$toast</span>.text(<span class="hljs-string">'提示信息'</span>);
   }
 }</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>高级用法</h2><p>第二个参数是一个对象，可以传入一些高级配置。</p>
@@ -20,21 +20,21 @@
   }
 }</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>带ICON</h2><p>成功提示</p>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-built_in">default</span> {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
   mounted() {
-    <span class="hljs-keyword">this</span>.$toast.success(<span class="hljs-string">'操作成功！'</span>);
+    this.<span class="hljs-variable">$toast</span>.success(<span class="hljs-string">'操作成功！'</span>);
   }
 }</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>失败提示</p>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-built_in">default</span> {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
   mounted() {
-    <span class="hljs-keyword">this</span>.$toast.fail(<span class="hljs-string">'操作失败！'</span>);
+    this.<span class="hljs-variable">$toast</span>.fail(<span class="hljs-string">'操作失败！'</span>);
   }
 }</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>警告提示</p>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-built_in">default</span> {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
   mounted() {
-    <span class="hljs-keyword">this</span>.$toast.warn(<span class="hljs-string">'确定删除？'</span>);
+    this.<span class="hljs-variable">$toast</span>.warn(<span class="hljs-string">'确定删除？'</span>);
   }
 }</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>加载提示</h2><hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-comment">//Loading类型，默认不会自动消失，带透明遮罩</span>

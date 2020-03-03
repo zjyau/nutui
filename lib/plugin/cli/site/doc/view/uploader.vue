@@ -55,21 +55,21 @@
 &gt;
 上传
 &lt;<span class="hljs-regexp">/nut-uploader&gt;   </span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript">export <span class="hljs-keyword">default</span> { 
-  <span class="hljs-keyword">data</span>() {
-    <span class="hljs-keyword">return</span> {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{ 
+  data() {
+    return {
       url:<span class="hljs-string">'https://my-json-server.typicode.com/linrufeng/demo/posts'</span>,    
     };
   },
   methods:{
       onSuccess(file,res){
-        <span class="hljs-keyword">this</span>.$toast.success(<span class="hljs-string">'上传成功'</span>);
+        this.<span class="hljs-variable">$toast</span>.success(<span class="hljs-string">'上传成功'</span>);
       },
       onFail(file,res){
-        <span class="hljs-keyword">this</span>.$toast.fail(<span class="hljs-string">'上传失败！'</span>);
+        this.<span class="hljs-variable">$toast</span>.fail(<span class="hljs-string">'上传失败！'</span>);
       },
       showMsgFn(msg){
-        <span class="hljs-keyword">this</span>.$toast.text(msg);
+        this.<span class="hljs-variable">$toast</span>.text(msg);
       },
   }
 </code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
@@ -89,17 +89,17 @@
   &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span> <span class="hljs-attr">small</span>&gt;</span>上传<span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-uploader</span>&gt;</span>   </code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> { 
-  <span class="hljs-selector-tag">data</span>() {
-    <span class="hljs-selector-tag">return</span> {
-      <span class="hljs-attribute">url</span>:<span class="hljs-string">'https://my-json-server.typicode.com/linrufeng/demo/posts'</span>, 
-      <span class="hljs-attribute">name</span>:<span class="hljs-string">'testname'</span>,
-      <span class="hljs-attribute">headers</span>:{
-        <span class="hljs-attribute">token</span>:<span class="hljs-string">'test'</span>
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{ 
+  data() {
+    return {
+      url:<span class="hljs-string">'https://my-json-server.typicode.com/linrufeng/demo/posts'</span>, 
+      name:<span class="hljs-string">'testname'</span>,
+      headers:{
+        token:<span class="hljs-string">'test'</span>
       },
-      <span class="hljs-attribute">formData</span>:{
-        <span class="hljs-attribute">f1</span>:<span class="hljs-string">'test'</span>,
-        <span class="hljs-attribute">f2</span>:<span class="hljs-string">'test1'</span>
+      formData:{
+        f1:<span class="hljs-string">'test'</span>,
+        f2:<span class="hljs-string">'test1'</span>
       },
     };
   },

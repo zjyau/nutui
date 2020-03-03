@@ -4,29 +4,29 @@
                                 <pre><span class="close-box" @click="closelayer"></span><div v-html="content"></div></pre>
                                 </div><h1>swiper 滑动切换<i class="qrcode"><a :href="demourl"><span>请使用手机扫码体验</span><img :src="codeurl" alt=""></a></i></h1><p>常用于一组图片或卡片轮播，当内容空间不足时，可以用走马灯的形式进行收纳，进行轮播展现。</p>
 <h2>基本用法</h2><p>横向无缝切换</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-swiper
-    :paginationVisible=<span class="hljs-string">"true"</span>
-    direction=<span class="hljs-string">"horizontal"</span>
-    :swiperData=<span class="hljs-string">"dataItem"</span>
-    <span class="hljs-keyword">ref</span>=<span class="hljs-string">"demo1"</span>
-&gt;
-    &lt;<span class="hljs-keyword">div</span>  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"(item,index) in dataItem"</span> :key=<span class="hljs-string">"index"</span>  <span class="hljs-built_in">class</span>=<span class="hljs-string">"nut-swiper-slide"</span>&gt;
-        &lt;span&gt;page{{<span class="hljs-built_in">item</span>.<span class="hljs-built_in">name</span>}}&lt;/span&gt;
-    &lt;/<span class="hljs-keyword">div</span>&gt;
-&lt;/nut-swiper&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nut-swiper</span>
+    <span class="hljs-attr">:paginationVisible</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">direction</span>=<span class="hljs-string">"horizontal"</span>
+    <span class="hljs-attr">:swiperData</span>=<span class="hljs-string">"dataItem"</span>
+    <span class="hljs-attr">ref</span>=<span class="hljs-string">"demo1"</span>
+&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>  <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item,index) in dataItem"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"index"</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">"nut-swiper-slide"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>page</span><span class="hljs-template-variable">{{item.name}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-swiper</span>&gt;</span></span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>横向切换</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-swiper
-    direction=<span class="hljs-string">"horizontal"</span>
-    :swiperData=<span class="hljs-string">"dataItem"</span>
-    :canDragging=<span class="hljs-string">"false"</span>
-    :paginationVisible=<span class="hljs-string">"true"</span>
-    <span class="hljs-keyword">ref</span>=<span class="hljs-string">"demo2"</span>
-&gt;
-    &lt;<span class="hljs-keyword">div</span>  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"(item,index) in dataItem"</span> :key=<span class="hljs-string">"index"</span>  <span class="hljs-built_in">class</span>=<span class="hljs-string">"nut-swiper-slide"</span>&gt;
-        &lt;span&gt;page{{<span class="hljs-built_in">item</span>.<span class="hljs-built_in">name</span>}}&lt;/span&gt;
-    &lt;/<span class="hljs-keyword">div</span>&gt;
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nut-swiper</span>
+    <span class="hljs-attr">direction</span>=<span class="hljs-string">"horizontal"</span>
+    <span class="hljs-attr">:swiperData</span>=<span class="hljs-string">"dataItem"</span>
+    <span class="hljs-attr">:canDragging</span>=<span class="hljs-string">"false"</span>
+    <span class="hljs-attr">:paginationVisible</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">ref</span>=<span class="hljs-string">"demo2"</span>
+&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>  <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item,index) in dataItem"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"index"</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">"nut-swiper-slide"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>page</span><span class="hljs-template-variable">{{item.name}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-&lt;/nut-swiper&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-swiper</span>&gt;</span></span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>横向循环切换</p>
 <hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-swiper</span>
     <span class="hljs-attr">direction</span>=<span class="hljs-string">"horizontal"</span>
@@ -76,7 +76,7 @@
     <span class="hljs-keyword">ref</span>=<span class="hljs-string">"demo5"</span>
 &gt;
         &lt;<span class="hljs-keyword">div</span>  v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"(item,index) in dataImgItem"</span> :key=<span class="hljs-string">"index"</span>  <span class="hljs-built_in">class</span>=<span class="hljs-string">"nut-swiper-slide "</span>&gt;
-        &lt;img :data-src=<span class="hljs-string">"item.imgSrc"</span>   style=<span class="hljs-string">"max-width:100%; max-height:100%"</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"nut-img-lazyload"</span>/&gt; 
+        &lt;img :data-src=<span class="hljs-string">"item.imgSrc"</span>   style=<span class="hljs-string">"max-width:100%; max-height:100%"</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"nut-img-lazyload"</span>/&gt; 
     &lt;/<span class="hljs-keyword">div</span>&gt;
 
 &lt;/nut-swiper&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

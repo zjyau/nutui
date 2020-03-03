@@ -7,7 +7,7 @@
 <li>通过 NPM 或 YARN 安装（推荐）</li>
 </ul>
 <h4 class='visibility' id='headnull'>NPM</h4><hide><pre class="prettyprint"><span class="lang">bash</span><div class="code-wrapper"><code class="language-bash"><span class="hljs-built_in">npm</span> i @nutui/nutui -S</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<h4 class='visibility' id='headnull'>YARN</h4><hide><pre class="prettyprint"><span class="lang">bash</span><div class="code-wrapper"><code class="language-bash"><span class="hljs-selector-tag">yarn</span> <span class="hljs-selector-tag">add</span> @<span class="hljs-keyword">nutui</span>/<span class="hljs-keyword">nutui</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<h4 class='visibility' id='headnull'>YARN</h4><hide><pre class="prettyprint"><span class="lang">bash</span><div class="code-wrapper"><code class="language-bash">yarn <span class="hljs-keyword">add</span><span class="bash"> @nutui/nutui</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <blockquote>
 <p>如果你的网络环境不佳，不妨试试国内的npm镜像</p>
 </blockquote>
@@ -21,27 +21,27 @@
 <p>当然你也可以通过 CDN 的方式引入， 可以在 <strong>jsdelivr</strong> 和 <strong>unpkg</strong> 等公共 CDN 上获取到 NutUI。我们推荐链接到一个你可以手动更新的指定版本号。</p>
 <hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span>
 <span class="hljs-comment">&lt;!-- 引入样式 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/nutui.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/nutui.css"</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- 引入Vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- 引入组件库 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/nutui.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/nutui.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>或者</p>
 <hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span>
 <span class="hljs-comment">&lt;!-- 引入样式 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/nutui.min.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/nutui.min.css"</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- 引入Vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- 引入组件库 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/nutui.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/nutui.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>CDN 引入示例</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- 引入样式 --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/nutui.min.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/nutui.min.css"</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
@@ -53,7 +53,7 @@
     <span class="hljs-comment">&lt;!-- 引入Vue --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- 引入NutUI组件库 --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/nutui.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/nutui.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
         <span class="hljs-keyword">new</span> Vue({
             el: <span class="hljs-string">'#app'</span>,
@@ -70,7 +70,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>CDN 按需加载引入示例</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span> /&gt;</span>
@@ -86,14 +86,14 @@
     <span class="hljs-comment">&lt;!-- 引入样式 --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">link</span>
       <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
-      <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/packages/button/button.css"</span>
+      <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/packages/button/button.css"</span>
     /&gt;</span>
     <span class="hljs-comment">&lt;!-- 引入Vue --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- 引入组件库 --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@2.1.9/dist/packages/button/button.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="vbscript">
-      Vue.component(button.<span class="hljs-keyword">default</span>.name, button.<span class="hljs-keyword">default</span>);
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/@nutui/nutui@3.0.0/dist/packages/button/button.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+      Vue.component(button.default.name, button.default);
       <span class="hljs-keyword">new</span> Vue({
         el: <span class="hljs-string">"#app"</span>
       });
@@ -117,7 +117,7 @@ NutUI.install(Vue);</code></div><i class="copy" copy="copy" data-clipboard-actio
 </blockquote>
 <h2 class='visibility' id='head4'>按需加载</h2><p>以下两种方式都可以实现只加载用到的组件，从而减少加载的文件体积。</p>
 <h3 class='visibility' id='headnull'>1. 使用 webpack 插件 <strong><a href="https://www.npmjs.com/package/@nutui/babel-plugin-separate-import">@nutui/babel-plugin-seperate-import</a></strong> (推荐)</h3><p>首先安装 <strong>@nutui/babel-plugin-separate-import</strong> 插件</p>
-<hide><pre class="prettyprint"><span class="lang">bash</span><div class="code-wrapper"><code class="language-bash"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">i</span> @<span class="hljs-keyword">nutui</span>/<span class="hljs-keyword">babel</span>-<span class="hljs-keyword">plugin</span>-<span class="hljs-keyword">separate</span>-<span class="hljs-keyword">import</span> -D</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<hide><pre class="prettyprint"><span class="lang">bash</span><div class="code-wrapper"><code class="language-bash"><span class="hljs-built_in">npm</span> i @nutui/babel-plugin-separate-<span class="hljs-keyword">import</span> -D</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>然后配置一下babel的配置文件</p>
 <hide><pre class="prettyprint"><span class="lang">bash</span><div class="code-wrapper"><code class="language-bash">{
   <span class="hljs-attr">"plugins"</span>: [
@@ -169,7 +169,7 @@ Picker.install(Vue);</code></div><i class="copy" copy="copy" data-clipboard-acti
 
 Button.install(Vue);</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2 class='visibility' id='head5'>组件使用</h2><p>1.使用:prop传递数据格式为 数字、布尔值或函数时，必须带:(兼容字符串类型除外)，比如：</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-built_in">switch</span> :active=<span class="hljs-string">"true"</span> <span class="hljs-built_in">size</span>=<span class="hljs-string">"base"</span>&gt;&lt;/nut-<span class="hljs-built_in">switch</span>&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-keyword">switch</span> :active=<span class="hljs-string">"true"</span> <span class="hljs-built_in">size</span>=<span class="hljs-string">"base"</span>&gt;&lt;/nut-<span class="hljs-keyword">switch</span>&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>2.组件 css 单位使用的是 <strong>px</strong>，如果你的项目中需要 <strong>rem</strong> 单位，可借助一些工具进行转换，比如 <a href="https://www.webpackjs.com/">webpack</a> 的 <a href="https://www.npmjs.com/package/px2rem-loader">px2rem-loader</a>、<a href="https://github.com/postcss/postcss">postcss</a> 的 <a href="https://www.npmjs.com/package/postcss-plugin-px2rem">postcss-plugin-px2rem</a> 插件等</p>
 <p>VueCLI3 配置示例 <code>vue.config.js</code></p>
 <hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-attr">const</span> <span class="hljs-string">pxtorem = require('postcss-pxtorem');</span>

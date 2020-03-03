@@ -9,16 +9,16 @@
     :leftShow=<span class="hljs-string">"false"</span> 
     :rightShow=<span class="hljs-string">"false"</span>
 &gt;title&lt;/nut-navbar&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {
-    <span class="hljs-attribute">methods</span>: {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
+    methods: {
         back(){
             alert(<span class="hljs-string">'header头部， 点击返回'</span>)
         },
-        <span class="hljs-selector-tag">title</span>(){
-            <span class="hljs-selector-tag">alert</span>(<span class="hljs-string">'header头部， 点击title'</span>)
+        title(){
+            alert(<span class="hljs-string">'header头部， 点击title'</span>)
         },
-        <span class="hljs-selector-tag">more</span>(){
-            <span class="hljs-selector-tag">alert</span>(<span class="hljs-string">'header头部， 点击更多'</span>)
+        more(){
+            alert(<span class="hljs-string">'header头部， 点击更多'</span>)
         }
     }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
@@ -38,16 +38,16 @@
     @<span class="hljs-keyword">on</span>-click-more=<span class="hljs-string">"more"</span>
 &gt;
 &lt;/nut-navbar&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {
-    <span class="hljs-attribute">methods</span>: {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
+    methods: {
         back(){
             alert(<span class="hljs-string">'header头部， 点击返回'</span>)
         },
-        <span class="hljs-selector-tag">title</span>(){
-            <span class="hljs-selector-tag">alert</span>(<span class="hljs-string">'header头部， 点击title'</span>)
+        title(){
+            alert(<span class="hljs-string">'header头部， 点击title'</span>)
         },
-        <span class="hljs-selector-tag">more</span>(){
-            <span class="hljs-selector-tag">alert</span>(<span class="hljs-string">'header头部， 点击更多'</span>)
+        more(){
+            alert(<span class="hljs-string">'header头部， 点击更多'</span>)
         }
     }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
@@ -56,12 +56,12 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"left"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"close"</span>&gt;</span>关闭<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"right"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"edit"</span>&gt;</span>编辑<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-navbar</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-built_in">default</span> {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
     methods: {
-        <span class="hljs-built_in">close</span>(){
+        close(){
             alert(<span class="hljs-string">'header头部， 点击关闭'</span>)
         },
-        edit(){
+        <span class="hljs-builtin-name">edit</span>(){
             alert(<span class="hljs-string">'header头部， 点击编辑'</span>)
         }
     }

@@ -35,13 +35,13 @@
 };
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
-  <span class="hljs-selector-tag">img</span><span class="hljs-selector-attr">[lazy="loading"]</span> {
+  <span class="hljs-selector-tag">img</span><span class="hljs-selector-attr">[lazy=<span class="hljs-string">"loading"</span>]</span> {
     <span class="hljs-comment">/*your style here*/</span>
   }
-  <span class="hljs-selector-tag">img</span><span class="hljs-selector-attr">[lazy="error"]</span> {
+  <span class="hljs-selector-tag">img</span><span class="hljs-selector-attr">[lazy=<span class="hljs-string">"error"</span>]</span> {
     <span class="hljs-comment">/*your style here*/</span>
   }
-  <span class="hljs-selector-tag">img</span><span class="hljs-selector-attr">[lazy="loaded"]</span> {
+  <span class="hljs-selector-tag">img</span><span class="hljs-selector-attr">[lazy=<span class="hljs-string">"loaded"</span>]</span> {
     <span class="hljs-comment">/*your style here*/</span>
   }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

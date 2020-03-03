@@ -53,9 +53,9 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-checkbox</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-string">data()</span> <span class="hljs-string">{</span>
     <span class="hljs-string">return</span> <span class="hljs-string">{</span>
-<span class="hljs-attr">          checkbox1:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          checkbox2:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          checkbox3:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+          <span class="hljs-attr">checkbox1:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+          <span class="hljs-attr">checkbox2:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+          <span class="hljs-attr">checkbox3:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
     <span class="hljs-string">};</span>
 <span class="hljs-string">}</span>
 </code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

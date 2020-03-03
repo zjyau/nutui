@@ -90,7 +90,7 @@
 </tr>
 <tr>
 <td>clearBtn</td>
-<td>是否需要情况按钮</td>
+<td>是否需要清空按钮</td>
 <td>Boolean</td>
 <td>true</td>
 </tr>

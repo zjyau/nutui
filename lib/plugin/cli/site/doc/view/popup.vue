@@ -21,8 +21,10 @@
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>弹出位置</h2><p>通过 position 属性设置弹出位置，默认居中弹出，可以设置为 top、bottom、left、right</p>
 <hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-popup <span class="hljs-attribute">v-model</span>=<span class="hljs-string">"show"</span> <span class="hljs-attribute">position</span>=<span class="hljs-string">"top"</span> :<span class="hljs-attribute">style</span>=<span class="hljs-string">"{ height: '20%' }"</span> /&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<h2>关闭图标</h2><p>设置closeable属性后，会在弹出层的右上角显示关闭图标，并且可以通过close-icon属性自定义图标，使用close-icon-position属性可以自定义图标位置</p>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-popup <span class="hljs-attribute">position</span>=<span class="hljs-string">"bottom"</span> closeable  <span class="hljs-attribute">close-icon</span>=<span class="hljs-string">"tick"</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-string">"showCloseIcon"</span> :<span class="hljs-attribute">style</span>=<span class="hljs-string">"{ height: '20%' }"</span> <span class="hljs-attribute">close-icon-position</span>=<span class="hljs-string">"top-left"</span>&gt;&lt;/nut-popup&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>圆角弹窗</h2><p>设置 round 属性后，弹窗会根据弹出位置添加不同的圆角样式</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;van-popup v-model=<span class="hljs-string">"show"</span> <span class="hljs-built_in">round</span> <span class="hljs-built_in">position</span>=<span class="hljs-string">"bottom"</span> :<span class="hljs-built_in">style</span>=<span class="hljs-string">"{ height: '20%' }"</span> /&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-popup v-model=<span class="hljs-string">"show"</span> <span class="hljs-built_in">round</span> <span class="hljs-built_in">position</span>=<span class="hljs-string">"bottom"</span> :<span class="hljs-built_in">style</span>=<span class="hljs-string">"{ height: '20%' }"</span> /&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>API</h2><table>
 <thead>
 <tr>
@@ -67,6 +69,24 @@
 <td>动画类名，等价于 transtion 的 name 属性</td>
 <td>string</td>
 <td>-</td>
+</tr>
+<tr>
+<td>closeable</td>
+<td>是否显示关闭图标</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>close-icon</td>
+<td>关闭图标名称</td>
+<td>string</td>
+<td>cross</td>
+</tr>
+<tr>
+<td>close-icon-position</td>
+<td>关闭图标位置，可选值为top-left bottom-left bottom-right</td>
+<td>string</td>
+<td>top-right</td>
 </tr>
 </tbody></table>
 <nut-backtop :right="50" :bottom="50"></nut-backtop>

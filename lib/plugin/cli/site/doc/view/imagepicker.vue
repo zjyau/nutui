@@ -40,30 +40,30 @@
   <span class="hljs-attr">autoUpload</span>=<span class="hljs-string">"true"</span>
 &gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-imagepicker</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript">export <span class="hljs-keyword">default</span> {
-  <span class="hljs-keyword">data</span>() {
-    <span class="hljs-keyword">return</span> {
-      imgList1:[
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {
+  <span class="hljs-selector-tag">data</span>() {
+    <span class="hljs-selector-tag">return</span> {
+      <span class="hljs-attribute">imgList1</span>:[
         {
-          id:<span class="hljs-number">1</span>,
-          src:<span class="hljs-string">"//img1.360buyimg.com/da/jfs/t1/4436/26/9691/78074/5bad0668E7ce89ec6/c234b749ae9e7332.jpg"</span>
+          <span class="hljs-attribute">id</span>:<span class="hljs-number">1</span>,
+          <span class="hljs-attribute">src</span>:<span class="hljs-string">"//img1.360buyimg.com/da/jfs/t1/4436/26/9691/78074/5bad0668E7ce89ec6/c234b749ae9e7332.jpg"</span>
         }
       ],
-      imgList2:[
+      <span class="hljs-attribute">imgList2</span>:[
         {
-          id:<span class="hljs-number">1</span>,
-          src:<span class="hljs-string">"//img1.360buyimg.com/da/jfs/t1/4436/26/9691/78074/5bad0668E7ce89ec6/c234b749ae9e7332.jpg"</span>
+          <span class="hljs-attribute">id</span>:<span class="hljs-number">1</span>,
+          <span class="hljs-attribute">src</span>:<span class="hljs-string">"//img1.360buyimg.com/da/jfs/t1/4436/26/9691/78074/5bad0668E7ce89ec6/c234b749ae9e7332.jpg"</span>
         }
       ]
     };
   },
-  methods: {
-    imgMsg(<span class="hljs-keyword">data</span>){
-      <span class="hljs-keyword">if</span>(<span class="hljs-keyword">data</span>.code == <span class="hljs-number">1</span>) {
+  <span class="hljs-attribute">methods</span>: {
+    imgMsg(data){
+      if(data.code == <span class="hljs-number">1</span>) {
         alert(<span class="hljs-string">'upload'</span>);
       }
-      console.log(<span class="hljs-keyword">this</span>.imgList2)
-      console.log(<span class="hljs-keyword">data</span>);<span class="hljs-comment">//code 1 自动上传  2 不上传只展示图片  3 删除图片  4 预览图片</span>
+      <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(this.imgList2)
+      <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(data);<span class="hljs-comment">//code 1 自动上传  2 不上传只展示图片  3 删除图片  4 预览图片</span>
     }
   }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

@@ -14,6 +14,7 @@
 <iframe src="https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui&type=fork&count=true" frameborder="0" scrolling="0" width="60px" height="20px"></iframe>
 
 <h2 class='visibility' id='head1'>特性</h2><ul>
+<li>40+ 高质量组件</li>
 <li>30+ 京东移动端项目正在使用</li>
 <li>基于京东APP 7.0 视觉规范</li>
 <li>支持按需加载</li>

@@ -2,9 +2,11 @@ import Webpack from 'webpack';
 import merge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { baseConfig } from './base.config';
-import { ROOT_CLI_PATH } from '../common/dic';
+import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { isDev } from '../util';
+const { version } = require(ROOT_PACKAGE_PATH('package.json'));
+const MarkDownToVue = require('@nutui/markdown-to-vue');
 export const devConfig: Webpack.Configuration = merge(baseConfig, {
     mode: 'development',
     entry: {
@@ -28,6 +30,26 @@ export const devConfig: Webpack.Configuration = merge(baseConfig, {
         }
     },
     plugins: [
+        // doc 
+        new MarkDownToVue({
+            entry: ROOT_PACKAGE_PATH('src'),
+            output: ROOT_CLI_PATH('site/doc/view/'),
+            template: './doc-site/template.html',
+            nav: 'left',
+            needCode: true,
+            isbuild: isDev(),
+            hasMarkList: false,
+            version
+        }),
+        new MarkDownToVue({
+            entry: ROOT_PACKAGE_PATH('docs'),
+            output: ROOT_CLI_PATH('site/doc/page/'),
+            template: './doc-site/template.html',
+            nav: 'left',
+            needCode: false,
+            isbuild: isDev(),
+            version
+        }),
         new MiniCssExtractPlugin({
             filename: isDev() ? '[name].css' : 'css/[name].[hash].min.css'
         }),

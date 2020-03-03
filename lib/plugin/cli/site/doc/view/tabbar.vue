@@ -44,32 +44,32 @@
   :tabbarList=<span class="hljs-string">"tabList2"</span>
 &gt;
 &lt;/nut-tabbar&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
   data() {
-    <span class="hljs-keyword">return</span> {
-      <span class="hljs-attr">tabList2</span>:[
+    return {
+      tabList2:[
         {
           <span class="hljs-string">'tabTitle'</span>:<span class="hljs-string">'百度'</span>,
-          <span class="hljs-string">'curr'</span>:<span class="hljs-literal">false</span>,
+          <span class="hljs-string">'curr'</span>:false,
           <span class="hljs-string">'icon'</span>:<span class="hljs-string">''</span>,
-          <span class="hljs-string">'num'</span>:<span class="hljs-number">5</span>,
+          <span class="hljs-string">'num'</span>:5,
         },
         {
           <span class="hljs-string">'tabTitle'</span>:<span class="hljs-string">'京东'</span>,
-          <span class="hljs-string">'curr'</span>:<span class="hljs-literal">true</span>,
+          <span class="hljs-string">'curr'</span>:true,
           <span class="hljs-string">'icon'</span>:<span class="hljs-string">''</span>
         },
         {
           <span class="hljs-string">'tabTitle'</span>:<span class="hljs-string">'知乎'</span>,
-          <span class="hljs-string">'curr'</span>:<span class="hljs-literal">false</span>,
+          <span class="hljs-string">'curr'</span>:false,
           <span class="hljs-string">'icon'</span>:<span class="hljs-string">''</span>,
         }
       ]
     };
   },
-  <span class="hljs-attr">methods</span>: {
-      <span class="hljs-attr">tabSwitch2</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value,index</span>)</span>{
-        <span class="hljs-built_in">console</span>.log(value);
+  methods: {
+      tabSwitch2:function(value,index){
+        console.log(value);
       }
   }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

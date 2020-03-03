@@ -84,45 +84,45 @@
   降价通知
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>圆角按钮-标签Button</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-selector-tag">button</span>
-  type=<span class="hljs-string">"primary"</span> 
-  shape=<span class="hljs-string">"circle"</span> 
-  small
-&gt;
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span>
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"primary"</span> 
+  <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> 
+  <span class="hljs-attr">small</span>
+&gt;</span>
   京东快递
-&lt;/nut-button&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span>
 
-&lt;nut-<span class="hljs-selector-tag">button</span> 
-  type=<span class="hljs-string">"lightred"</span> 
-  shape=<span class="hljs-string">"circle"</span> 
-  small
-&gt;
-  好评 <span class="hljs-number">6.6</span>万
-&lt;/nut-button&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span> 
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"lightred"</span> 
+  <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> 
+  <span class="hljs-attr">small</span>
+&gt;</span>
+  好评 6.6万
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span>
 
-&lt;nut-<span class="hljs-selector-tag">button</span> 
-  type=<span class="hljs-string">"actived"</span> 
-  shape=<span class="hljs-string">"circle"</span> 
-  <span class="hljs-attribute">icon</span>=<span class="hljs-string">"tick"</span> 
-  small
-&gt;
-  全部 <span class="hljs-number">100</span>万
-&lt;/nut-button&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span> 
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"actived"</span> 
+  <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> 
+  <span class="hljs-attr">icon</span>=<span class="hljs-string">"tick"</span> 
+  <span class="hljs-attr">small</span>
+&gt;</span>
+  全部 100万
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>图标按钮-小</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-selector-tag">button</span> 
-  type=<span class="hljs-string">"actived"</span> 
-  shape=<span class="hljs-string">"circle"</span> 
-  <span class="hljs-attribute">icon</span>=<span class="hljs-string">"tick"</span> 
-  small
-&gt;
-&lt;/nut-button&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span> 
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"actived"</span> 
+  <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> 
+  <span class="hljs-attr">icon</span>=<span class="hljs-string">"tick"</span> 
+  <span class="hljs-attr">small</span>
+&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>图标按钮-大</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-selector-tag">button</span> 
-  type=<span class="hljs-string">"actived"</span> 
-  shape=<span class="hljs-string">"circle"</span> 
-  <span class="hljs-attribute">icon</span>=<span class="hljs-string">"tick"</span>
-&gt;
-&lt;/nut-button&gt;</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span> 
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"actived"</span> 
+  <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> 
+  <span class="hljs-attr">icon</span>=<span class="hljs-string">"tick"</span>
+&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>圆角按钮-商品属性选择Button</p>
 <hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-button</span> 
   <span class="hljs-attr">type</span>=<span class="hljs-string">"actived"</span> 
@@ -148,47 +148,47 @@
   晶钻蓝
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-button</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <p>自定义颜色</p>
-<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-selector-tag">button</span> 
+<hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html">&lt;nut-<span class="hljs-keyword">button</span> 
   type=<span class="hljs-string">"actived"</span> 
   shape=<span class="hljs-string">"circle"</span> 
   small 
-  <span class="hljs-attribute">color</span>=<span class="hljs-string">"#fff"</span>
+  <span class="hljs-keyword">color</span>=<span class="hljs-string">"#fff"</span>
 &gt;
   象牙白
-&lt;/nut-button&gt;
+&lt;/nut-<span class="hljs-keyword">button</span>&gt;
 
-&lt;nut-<span class="hljs-selector-tag">button</span> 
+&lt;nut-<span class="hljs-keyword">button</span> 
   type=<span class="hljs-string">"primary"</span> 
   shape=<span class="hljs-string">"circle"</span> 
   small 
-  <span class="hljs-attribute">color</span>=<span class="hljs-string">"rgb(0,0,0)"</span>
+  <span class="hljs-keyword">color</span>=<span class="hljs-string">"rgb(0,0,0)"</span>
 &gt;
   象牙白
-&lt;/nut-button&gt;
+&lt;/nut-<span class="hljs-keyword">button</span>&gt;
 
-&lt;nut-<span class="hljs-selector-tag">button</span> 
+&lt;nut-<span class="hljs-keyword">button</span> 
   type=<span class="hljs-string">"actived"</span> 
   shape=<span class="hljs-string">"circle"</span> 
-  <span class="hljs-attribute">icon</span>=<span class="hljs-string">"tick"</span> 
-  <span class="hljs-attribute">color</span>=<span class="hljs-string">"rgb(0,0,0)"</span> 
+  icon=<span class="hljs-string">"tick"</span> 
+  <span class="hljs-keyword">color</span>=<span class="hljs-string">"rgb(0,0,0)"</span> 
   small
 &gt;
-&lt;/nut-button&gt;
+&lt;/nut-<span class="hljs-keyword">button</span>&gt;
 
-&lt;nut-<span class="hljs-selector-tag">button</span> 
+&lt;nut-<span class="hljs-keyword">button</span> 
   type=<span class="hljs-string">"actived"</span> 
   shape=<span class="hljs-string">"circle"</span> 
-  <span class="hljs-attribute">icon</span>=<span class="hljs-string">"tick"</span> 
-  <span class="hljs-attribute">color</span>=<span class="hljs-string">"rgb(0,0,0)"</span> 
+  icon=<span class="hljs-string">"tick"</span> 
+  <span class="hljs-keyword">color</span>=<span class="hljs-string">"rgb(0,0,0)"</span> 
   small
 &gt;
   全部 <span class="hljs-number">100</span>万
-&lt;/nut-button&gt;
+&lt;/nut-<span class="hljs-keyword">button</span>&gt;
 </code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {
-  <span class="hljs-attribute">methods</span>: {
-      <span class="hljs-built_in">clickHandler</span>() {
-        <span class="hljs-built_in">alert</span>(<span class="hljs-string">'我点击了按钮'</span>);
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
+  methods: {
+      clickHandler() {
+        alert(<span class="hljs-string">'我点击了按钮'</span>);
       }
   }
 };</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>

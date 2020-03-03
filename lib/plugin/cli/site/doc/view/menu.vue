@@ -114,250 +114,250 @@
     @<span class="hljs-attr">close</span>=<span class="hljs-string">"switchMenu('isVisible11',5)"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"custom"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"custom-wrap"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>自定义<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-menu</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-string">import</span> <span class="hljs-string">nutMenu</span> <span class="hljs-string">from</span> <span class="hljs-string">'./menu.vue'</span><span class="hljs-string">;</span>
-<span class="hljs-string">export</span> <span class="hljs-string">default</span> <span class="hljs-string">{</span>
-<span class="hljs-attr">  components:</span> <span class="hljs-string">{</span>
-    <span class="hljs-string">[nutMenu.name]:nutMenu</span>
-  <span class="hljs-string">},</span>
-  <span class="hljs-string">data()</span> <span class="hljs-string">{</span>
-    <span class="hljs-string">return</span> <span class="hljs-string">{</span>
-<span class="hljs-attr">      num:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">      titlenum:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">      max:</span><span class="hljs-number">6</span><span class="hljs-string">,</span>
-<span class="hljs-attr">      visible:</span><span class="hljs-string">{</span>
-<span class="hljs-attr">          isVisible1:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible2:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible3:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible4:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible5:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible6:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible7:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible8:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible9:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible10:</span><span class="hljs-literal">false</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          isVisible11:</span><span class="hljs-literal">false</span>
-      <span class="hljs-string">},</span>
-<span class="hljs-attr">      list1:</span><span class="hljs-string">[</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">            id:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            text:</span><span class="hljs-string">'综合'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            selected:</span><span class="hljs-literal">true</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">            id:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            text:</span><span class="hljs-string">'最新上架'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">            id:</span><span class="hljs-number">2</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            text:</span><span class="hljs-string">'价格最低'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">            id:</span><span class="hljs-number">3</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            text:</span><span class="hljs-string">'价格最高'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">            id:</span><span class="hljs-number">4</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            text:</span><span class="hljs-string">'评价最多'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">            selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">}</span>
-      <span class="hljs-string">],</span>
-<span class="hljs-attr">      list2:</span><span class="hljs-string">[{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'京东物流'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">true</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">2</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'有货优先'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">3</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'海囤全球'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">4</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'货到付款'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">5</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'促销商品'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">6</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'配送全球'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">}</span>
-      <span class="hljs-string">],</span>
-<span class="hljs-attr">      list4:</span><span class="hljs-string">[{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'海尔（Haier）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">true</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">2</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'小天鹅（LittleSwan）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">3</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'美的（Midea）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">4</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'西门子（SIEMENS）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">5</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'TCL'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">6</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'松下（Panasonic）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">7</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'海信（Hisense）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">8</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'惠而浦（whirlpool）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">9</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'三洋（SANYO）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">10</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'博世（BOSCH）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">11</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'威力（WEILI）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">12</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'LG'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">13</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'小鸭（LittleDuck）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">14</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'统帅（Leader）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">15</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'三星（SAMSUNG）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">16</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'奥克斯（AUX）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">17</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'志高（CHIGO）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">18</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'创维（Skyworth）'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">}</span>
-      <span class="hljs-string">],</span>
-<span class="hljs-attr">      list3:</span><span class="hljs-string">[{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">1</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'1级'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">true</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">2</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'2级'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">3</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'3级'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">4</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'4级'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">},</span>
-        <span class="hljs-string">{</span>
-<span class="hljs-attr">          id:</span><span class="hljs-number">5</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          text:</span><span class="hljs-string">'5级'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">          selected:</span><span class="hljs-literal">false</span>
-        <span class="hljs-string">}</span>
-      <span class="hljs-string">],</span>
-    <span class="hljs-string">};</span>
-  <span class="hljs-string">},</span>
-<span class="hljs-attr">  methods:</span> <span class="hljs-string">{</span>
-    <span class="hljs-string">switchMenu(param,num)</span> <span class="hljs-string">{</span>
-        <span class="hljs-string">this.num</span> <span class="hljs-string">=</span> <span class="hljs-string">num;</span>
-        <span class="hljs-string">this.titlenum</span> <span class="hljs-string">=</span> <span class="hljs-string">param.split('isVisible')[1];</span>
-        <span class="hljs-string">for(let</span> <span class="hljs-string">key</span> <span class="hljs-string">in</span> <span class="hljs-string">this.visible)</span> <span class="hljs-string">{</span>
-          <span class="hljs-string">if(key</span> <span class="hljs-string">!==</span> <span class="hljs-string">param)</span> <span class="hljs-string">{</span>
-              <span class="hljs-string">this.visible[key]</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span><span class="hljs-string">;</span>
-          <span class="hljs-string">}</span>
-        <span class="hljs-string">}</span>
-      <span class="hljs-string">Array.from(document.querySelectorAll('.list')).forEach(item</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">{</span>
-          <span class="hljs-string">item.style.zIndex</span> <span class="hljs-string">=</span> <span class="hljs-number">0</span><span class="hljs-string">;</span>
-      <span class="hljs-string">});</span>
-      <span class="hljs-string">if(!this.visible[`${param}`])</span> <span class="hljs-string">{</span>
-          <span class="hljs-string">document.querySelector('.list'</span> <span class="hljs-string">+</span> <span class="hljs-string">this.num).style.zIndex</span> <span class="hljs-string">=</span> <span class="hljs-number">9999</span><span class="hljs-string">;</span>
-      <span class="hljs-string">}</span>
-      <span class="hljs-string">this.visible[`${param}`]</span> <span class="hljs-string">=</span> <span class="hljs-type">!this</span><span class="hljs-string">.visible[`${param}`];</span>
-    <span class="hljs-string">},</span>
-    <span class="hljs-string">chooseMenu(item,index)</span> <span class="hljs-string">{</span>
-        <span class="hljs-string">this.switchMenu('isVisible1',1);</span>
-        <span class="hljs-string">this.list1.map((value,key)</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">value.selected</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span><span class="hljs-string">);</span>
-        <span class="hljs-string">this.$set(this.list1[index],'selected',true);</span>
-        <span class="hljs-string">this.$refs.title1.innerText</span> <span class="hljs-string">=</span> <span class="hljs-string">item.text;</span>
-    <span class="hljs-string">},</span>
+<hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-keyword">import</span> nutMenu from <span class="hljs-string">'./menu.vue'</span>;
+export <span class="hljs-keyword">default</span> {
+  components: {
+    [nutMenu.name]:nutMenu
+  },
+  data() {
+    <span class="hljs-keyword">return</span> {
+      num:<span class="hljs-number">1</span>,
+      titlenum:<span class="hljs-number">1</span>,
+      <span class="hljs-built_in">max</span>:<span class="hljs-number">6</span>,
+      visible:{
+          isVisible1:<span class="hljs-keyword">false</span>,
+          isVisible2:<span class="hljs-keyword">false</span>,
+          isVisible3:<span class="hljs-keyword">false</span>,
+          isVisible4:<span class="hljs-keyword">false</span>,
+          isVisible5:<span class="hljs-keyword">false</span>,
+          isVisible6:<span class="hljs-keyword">false</span>,
+          isVisible7:<span class="hljs-keyword">false</span>,
+          isVisible8:<span class="hljs-keyword">false</span>,
+          isVisible9:<span class="hljs-keyword">false</span>,
+          isVisible10:<span class="hljs-keyword">false</span>,
+          isVisible11:<span class="hljs-keyword">false</span>
+      },
+      list1:[
+        {
+            id:<span class="hljs-number">1</span>,
+            <span class="hljs-built_in">text</span>:<span class="hljs-string">'综合'</span>,
+            selected:<span class="hljs-keyword">true</span>
+        },
+        {
+            id:<span class="hljs-number">1</span>,
+            <span class="hljs-built_in">text</span>:<span class="hljs-string">'最新上架'</span>,
+            selected:<span class="hljs-keyword">false</span>
+        },
+        {
+            id:<span class="hljs-number">2</span>,
+            <span class="hljs-built_in">text</span>:<span class="hljs-string">'价格最低'</span>,
+            selected:<span class="hljs-keyword">false</span>
+        },
+        {
+            id:<span class="hljs-number">3</span>,
+            <span class="hljs-built_in">text</span>:<span class="hljs-string">'价格最高'</span>,
+            selected:<span class="hljs-keyword">false</span>
+        },
+        {
+            id:<span class="hljs-number">4</span>,
+            <span class="hljs-built_in">text</span>:<span class="hljs-string">'评价最多'</span>,
+            selected:<span class="hljs-keyword">false</span>
+        }
+      ],
+      list2:[{
+          id:<span class="hljs-number">1</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'京东物流'</span>,
+          selected:<span class="hljs-keyword">true</span>
+        },
+        {
+          id:<span class="hljs-number">2</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'有货优先'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">3</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'海囤全球'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">4</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'货到付款'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">5</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'促销商品'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">6</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'配送全球'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        }
+      ],
+      list4:[{
+          id:<span class="hljs-number">1</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'海尔（Haier）'</span>,
+          selected:<span class="hljs-keyword">true</span>
+        },
+        {
+          id:<span class="hljs-number">2</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'小天鹅（LittleSwan）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">3</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'美的（Midea）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">4</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'西门子（SIEMENS）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">5</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'TCL'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">6</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'松下（Panasonic）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">7</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'海信（Hisense）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">8</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'惠而浦（whirlpool）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">9</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'三洋（SANYO）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">10</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'博世（BOSCH）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">11</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'威力（WEILI）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">12</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'LG'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">13</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'小鸭（LittleDuck）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">14</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'统帅（Leader）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">15</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'三星（SAMSUNG）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">16</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'奥克斯（AUX）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">17</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'志高（CHIGO）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">18</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'创维（Skyworth）'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        }
+      ],
+      list3:[{
+          id:<span class="hljs-number">1</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'1级'</span>,
+          selected:<span class="hljs-keyword">true</span>
+        },
+        {
+          id:<span class="hljs-number">2</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'2级'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">3</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'3级'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">4</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'4级'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        },
+        {
+          id:<span class="hljs-number">5</span>,
+          <span class="hljs-built_in">text</span>:<span class="hljs-string">'5级'</span>,
+          selected:<span class="hljs-keyword">false</span>
+        }
+      ],
+    };
+  },
+  methods: {
+    switchMenu(param,num) {
+        <span class="hljs-keyword">this</span>.num = num;
+        <span class="hljs-keyword">this</span>.titlenum = param.<span class="hljs-built_in">split</span>(<span class="hljs-string">'isVisible'</span>)[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">for</span>(let <span class="hljs-built_in">key</span> in <span class="hljs-keyword">this</span>.visible) {
+          <span class="hljs-keyword">if</span>(<span class="hljs-built_in">key</span> !== param) {
+              <span class="hljs-keyword">this</span>.visible[<span class="hljs-built_in">key</span>] = <span class="hljs-keyword">false</span>;
+          }
+        }
+      <span class="hljs-keyword">Array</span>.from(document.querySelectorAll(<span class="hljs-string">'.list'</span>)).forEach(item =&gt; {
+          item.style.zIndex = <span class="hljs-number">0</span>;
+      });
+      <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.visible[`${param}`]) {
+          document.querySelector(<span class="hljs-string">'.list'</span> + <span class="hljs-keyword">this</span>.num).style.zIndex = <span class="hljs-number">9999</span>;
+      }
+      <span class="hljs-keyword">this</span>.visible[`${param}`] = !<span class="hljs-keyword">this</span>.visible[`${param}`];
+    },
+    chooseMenu(item,index) {
+        <span class="hljs-keyword">this</span>.switchMenu(<span class="hljs-string">'isVisible1'</span>,<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">this</span>.list1.<span class="hljs-built_in">map</span>((value,<span class="hljs-built_in">key</span>) =&gt; value.selected = <span class="hljs-keyword">false</span>);
+        <span class="hljs-keyword">this</span>.$<span class="hljs-built_in">set</span>(<span class="hljs-keyword">this</span>.list1[index],<span class="hljs-string">'selected'</span>,<span class="hljs-keyword">true</span>);
+        <span class="hljs-keyword">this</span>.$refs.title1.innerText = item.<span class="hljs-built_in">text</span>;
+    },
 
-    <span class="hljs-string">reset(list)</span> <span class="hljs-string">{</span>
-        <span class="hljs-string">this.$refs[`title${this.titlenum}`].innerText</span> <span class="hljs-string">=</span> <span class="hljs-string">'menu'</span><span class="hljs-string">;</span>
-    <span class="hljs-string">},</span>
-    <span class="hljs-string">ok(list)</span> <span class="hljs-string">{</span>
-        <span class="hljs-string">let</span> <span class="hljs-string">arr</span> <span class="hljs-string">=</span> <span class="hljs-string">[];</span>
-        <span class="hljs-string">list.forEach((item,index)</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">{</span>
-            <span class="hljs-string">if(item.selected)</span> <span class="hljs-string">{</span>
-                <span class="hljs-string">arr.push(item.text);</span>
-            <span class="hljs-string">}</span>
-        <span class="hljs-string">});</span>
+    reset(list) {
+        <span class="hljs-keyword">this</span>.$refs[`title${<span class="hljs-keyword">this</span>.titlenum}`].innerText = <span class="hljs-string">'menu'</span>;
+    },
+    ok(list) {
+        let arr = [];
+        list.forEach((item,index) =&gt; {
+            <span class="hljs-keyword">if</span>(item.selected) {
+                arr.push(item.<span class="hljs-built_in">text</span>);
+            }
+        });
 
-        <span class="hljs-string">if(!!arr.length)</span> <span class="hljs-string">{</span>
-            <span class="hljs-string">this.$refs[`title${this.titlenum}`].innerText</span> <span class="hljs-string">=</span> <span class="hljs-string">arr.join();</span>
-        <span class="hljs-string">}</span>
-    <span class="hljs-string">},</span>
-    <span class="hljs-string">maxTip()</span> <span class="hljs-string">{</span>
-        <span class="hljs-string">alert('超过了最大选择数');</span>
-    <span class="hljs-string">}</span>
-  <span class="hljs-string">}</span>
-<span class="hljs-string">};</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
+        <span class="hljs-keyword">if</span>(!!arr.length) {
+            <span class="hljs-keyword">this</span>.$refs[`title${<span class="hljs-keyword">this</span>.titlenum}`].innerText = arr.<span class="hljs-built_in">join</span>();
+        }
+    },
+    maxTip() {
+        alert(<span class="hljs-string">'超过了最大选择数'</span>);
+    }
+  }
+};</code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h2>Prop</h2><table>
 <thead>
 <tr>
