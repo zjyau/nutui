@@ -11,12 +11,12 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <h3>单个按钮</h3><hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">nut-leftslip</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"slip-main"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slip-main"</span>&gt;</span>单一按钮<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"slip-main"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slip-main"</span>&gt;</span>自定义单一按钮<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"slipbtns"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slipbtns"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:;"</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">nut-leftslip</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
-<h3>单个按钮左滑一键删除</h3><hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-leftslip</span> <span class="hljs-attr">onlyDel</span> @<span class="hljs-attr">oneDelete</span>=<span class="hljs-string">"oneDel"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"slip-main"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slip-main"</span>&gt;</span>向左滑滑滑~一键删除<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<h3>单个按钮一键删除</h3><hide><pre class="prettyprint"><span class="lang">html</span><div class="code-wrapper"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nut-leftslip</span> <span class="hljs-attr">onlyDelBtn</span> @<span class="hljs-attr">oneDelete</span>=<span class="hljs-string">"oneDel"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"slip-main"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slip-main"</span>&gt;</span>单一按钮点击一键删除<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nut-leftslip</span>&gt;</span></code></div><i class="copy" copy="copy" data-clipboard-action="copy" data-clipboard-target="code" title="复制代码"></i><i toast="toast" title="全屏"></i></pre></hide>
 <hide><pre class="prettyprint"><span class="lang">javascript</span><div class="code-wrapper"><code class="language-javascript"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>{
     oneDel(par) {
@@ -96,8 +96,8 @@
 <td>-</td>
 </tr>
 <tr>
-<td>onlyDel</td>
-<td>显示只有一个删除按钮的列表样式（支持一键删除）</td>
+<td>onlyDelBtn</td>
+<td>设置单一删除按钮</td>
 <td>Boolean</td>
 <td>false</td>
 </tr>

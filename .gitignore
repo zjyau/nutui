@@ -1,12 +1,12 @@
 node_modules/
 package-lock.json
 lib/plugin/cli/dist_cli/
+lib/plugin/cli/sites/doc/view/
+lib/plugin/cli/sites/doc/page/
 npm-debug.log
 .DS_Store
 yarn.lock
 dist/
 .nyc_output/
 coverage/
-lib/plugin/cli/sites/doc/view
-lib/plugin/cli/sites/doc/page
 cache/
