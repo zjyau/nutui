@@ -7,4 +7,5 @@ export async function clean() {
   logger.success(`clean ${DIST_DIR} success!`);
   await emptyDir(CACHE_DIR);
   logger.success(`clean ${CACHE_DIR} success!`);
+  process.exit();
 }
