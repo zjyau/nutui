@@ -1,8 +1,7 @@
 // 创建模板
 
 const inquirer = require('inquirer');
-import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
-
+import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../util/dic';
 const conf = require(ROOT_PACKAGE_PATH('src/config.json'));
 const path = require('path');
 const fs = require('fs');

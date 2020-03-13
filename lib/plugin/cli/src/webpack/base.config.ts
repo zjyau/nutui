@@ -1,7 +1,7 @@
 import Webpack from 'webpack';
 import WebpackBar from 'webpackbar';
 import { VueLoaderPlugin } from 'vue-loader';
-import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
+import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../util/dic';
 import { isDev, isTest } from '../util';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const config = require(ROOT_PACKAGE_PATH('package.json'));

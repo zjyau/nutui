@@ -1,6 +1,6 @@
 
 
-import { ROOT_PACKAGE_PATH } from '../common/dic';
+import { ROOT_PACKAGE_PATH } from '../util/dic';
 import { packageConfig } from './package.config';
 import merge from 'webpack-merge';
 module.exports =  merge(packageConfig(false), {

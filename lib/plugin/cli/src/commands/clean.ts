@@ -1,5 +1,5 @@
 import { emptyDir } from 'fs-extra';
-import { DIST_DIR, CACHE_DIR } from "../common/dic";
+import { DIST_DIR, CACHE_DIR } from "../util/dic";
 import logger from '../util/logger';
 
 export async function clean() {

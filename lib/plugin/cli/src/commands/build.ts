@@ -1,6 +1,6 @@
 import { emptyDir } from 'fs-extra';
 import { compilePackage } from '../compiler/package';
-import { DIST_DIR } from "../common/dic";
+import { DIST_DIR } from "../util/dic";
 import logger from '../util/logger';
 import { compilePackageDisperse } from '../compiler/package.disperse';
 export async function build() {
