@@ -64,4 +64,3 @@ export declare class Avatar extends UIComponent {}
 export declare class Infiniteloading extends UIComponent {}
 export declare class Lazyload extends UIComponent {}
 export declare class Elevator extends UIComponent {}
-export declare class TextBoxx extends UIComponent {}

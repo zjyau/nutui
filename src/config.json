@@ -533,16 +533,6 @@
       "sort": "6",
       "showDemo": true,
       "author": "ymm"
-    },
-    {
-      "version": "1.0.0",
-      "name": "TextBoxx",
-      "type": "component",
-      "chnName": "textboxx",
-      "desc": "textboxx",
-      "sort": "6",
-      "showDemo": true,
-      "author": "test"
     }
   ]
 }

@@ -102,8 +102,6 @@ import "./packages/tabselect/tabselect.scss";
 import './packages/popup/popup.scss';
 import LuckDraw from "./packages/luckdraw/index.js";
 import "./packages/luckdraw/luckdraw.scss";
-import TextBoxx from "./packages/textboxx/index.js";
-import "./packages/textboxx/textboxx.scss";
 
 const packages = {
   Cell,
@@ -155,8 +153,7 @@ const packages = {
   Popup,
   LeftSlip,
   TabSelect: TabSelect,
-  LuckDraw: LuckDraw,
-  TextBoxx: TextBoxx
+  LuckDraw: LuckDraw
 };
 
 const components = {};
