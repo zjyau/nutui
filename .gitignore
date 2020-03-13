@@ -1,8 +1,8 @@
 node_modules/
 package-lock.json
 lib/plugin/cli/dist_cli/
-lib/plugin/cli/sites/doc/view/
-lib/plugin/cli/sites/doc/page/
+lib/plugin/cli/site/doc/view/
+lib/plugin/cli/site/doc/page/
 npm-debug.log
 .DS_Store
 yarn.lock

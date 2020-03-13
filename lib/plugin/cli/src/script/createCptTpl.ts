@@ -174,7 +174,7 @@ function createDoc() {
         const nameLc = newCpt.name.toLowerCase();
         let content = `${nameLc}`;
         const dirPath = path.join(ROOT_PACKAGE_PATH("src/packages/"+nameLc));
-        const filePath = path.join(dirPath, `${nameLc}.md`);
+        const filePath = path.join(dirPath, `doc.md`);
         if (!fs.existsSync(dirPath)) {
             fs.mkdirSync(dirPath);
         }
