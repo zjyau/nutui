@@ -12,6 +12,7 @@ export async function build() {
         logger.success(`build compilePackage true package success!`);
         await compilePackageDisperse();
         logger.success(`build compilePackageDisperse package success!`);
+        process.exit();
     } catch (error) {
         logger.error(error)
     }

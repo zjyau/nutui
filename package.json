@@ -73,10 +73,5 @@
     ],
     "instrument": false,
     "sourceMap": false
-  },
-  "browserslist": [
-    "> 3%",
-    "Android >= 4",
-    "iOS >= 8"
-  ]
+  }
 }
