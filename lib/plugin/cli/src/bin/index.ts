@@ -11,7 +11,7 @@ import { createComponent } from '../commands/createComponent';
 import { commitLint } from '../commands/commitLint';
 import { test } from '../commands/test';
 import { release } from '../commands/npmPublish';
-import { ROOT_CLI_PATH } from '../common/dic';
+import { ROOT_CLI_PATH } from '../util/dic';
 
 const config = require(ROOT_CLI_PATH('package.json'));
 program.version(`@nutui/cli ${config.version}`, '-v', '--version')

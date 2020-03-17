@@ -1,6 +1,6 @@
 import Webpack from 'webpack';
 import merge from 'webpack-merge';
-import { ROOT_PACKAGE_PATH } from '../common/dic';
+import { ROOT_PACKAGE_PATH } from '../util/dic';
 import { baseConfig } from './base.config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';

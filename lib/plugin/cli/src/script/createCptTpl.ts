@@ -1,8 +1,7 @@
 // 创建模板
 
 const inquirer = require('inquirer');
-import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../common/dic';
-
+import { ROOT_CLI_PATH, ROOT_PACKAGE_PATH } from '../util/dic';
 const conf = require(ROOT_PACKAGE_PATH('src/config.json'));
 const path = require('path');
 const fs = require('fs');
@@ -170,6 +169,22 @@ export default {
     });
 }
 
+function createDoc() {
+    return new Promise((resolve, reject) => {
+        const nameLc = newCpt.name.toLowerCase();
+        let content = `${nameLc}`;
+        const dirPath = path.join(ROOT_PACKAGE_PATH("src/packages/"+nameLc));
+        const filePath = path.join(dirPath, `doc.md`);
+        if (!fs.existsSync(dirPath)) {
+            fs.mkdirSync(dirPath);
+        }
+        fs.writeFile(filePath, content, (err:any) => {
+            if (err) throw err;
+            resolve(`生成${newCpt.name}.doc文件成功`);
+        });
+    });
+}
+
 function createScss() {
     return new Promise((resolve, reject) => {
         const nameLc = newCpt.name.toLowerCase();
@@ -322,6 +337,8 @@ export default ${newCpt.name}`;
         return createScss();
     }).then(() => {
         return createDemo();
+    }).then(() => {
+        return createDoc();
     }).then(() => {
         return addToPackageJson();
     }).then(() => {
