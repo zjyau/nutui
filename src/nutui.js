@@ -97,143 +97,143 @@ import './packages/elevator/elevator.scss';
 import Popup from './packages/popup/index.js';
 import LeftSlip from './packages/leftslip/index.js';
 import './packages/leftslip/leftslip.scss';
-import TabSelect from "./packages/tabselect/index.js";
-import "./packages/tabselect/tabselect.scss";
+import TabSelect from './packages/tabselect/index.js';
+import './packages/tabselect/tabselect.scss';
 import './packages/popup/popup.scss';
-import LuckDraw from "./packages/luckdraw/index.js";
-import "./packages/luckdraw/luckdraw.scss";
+import LuckDraw from './packages/luckdraw/index.js';
+import './packages/luckdraw/luckdraw.scss';
 
 const packages = {
-  Cell,
-  Dialog,
-  Icon,
-  Toast,
-  ActionSheet,
-  Tab,
-  TabPanel,
-  TabBar,
-  Calendar,
-  DatePicker,
-  NavBar,
-  NoticeBar,
-  Switch,
-  Slider,
-  Range,
-  Picker,
-  Progress,
-  Price,
-  Flex,
-  Col,
-  Row,
-  Steps,
-  Button,
-  Badge,
-  Rate,
-  Swiper,
-  Menu,
-  Stepper,
-  ButtonGroup,
-  SearchBar,
-  ImagePicker,
-  Radio,
-  RadioGroup,
-  CheckBox,
-  CheckBoxGroup,
-  ShortPassword,
-  Skeleton,
-  Scroller,
-  BackTop,
-  CountDown,
-  InfiniteLoading,
-  Uploader,
-  TextInput,
-  TextBox,
-  Avatar,
-  Elevator,
-  Popup,
-  LeftSlip,
-  TabSelect: TabSelect,
-  LuckDraw: LuckDraw
+	Cell,
+	Dialog,
+	Icon,
+	Toast,
+	ActionSheet,
+	Tab,
+	TabPanel,
+	TabBar,
+	Calendar,
+	DatePicker,
+	NavBar,
+	NoticeBar,
+	Switch,
+	Slider,
+	Range,
+	Picker,
+	Progress,
+	Price,
+	Flex,
+	Col,
+	Row,
+	Steps,
+	Button,
+	Badge,
+	Rate,
+	Swiper,
+	Menu,
+	Stepper,
+	ButtonGroup,
+	SearchBar,
+	ImagePicker,
+	Radio,
+	RadioGroup,
+	CheckBox,
+	CheckBoxGroup,
+	ShortPassword,
+	Skeleton,
+	Scroller,
+	BackTop,
+	CountDown,
+	InfiniteLoading,
+	Uploader,
+	TextInput,
+	TextBox,
+	Avatar,
+	Elevator,
+	Popup,
+	LeftSlip,
+	TabSelect,
+	LuckDraw,
 };
 
 const components = {};
 const methods = {};
 const filters = {};
 const directives = {};
-pkgList.map(item => {
-  const pkg = packages[item.name];
-  if (!pkg) return;
+pkgList.map((item) => {
+	const pkg = packages[item.name];
+	if (!pkg) return;
 
-  if (item.type == 'component') {
-    if (pkg.name) {
-      components[pkg.name] = pkg;
-    } else {
-      for (let n in pkg) {
-        components[n] = pkg[n];
-      }
-    }
-  } else if (item.type == 'method') {
-    methods[item.name] = pkg;
-  } else if (item.type == 'filter') {
-    filters[item.name] = pkg;
-  } else if (item.type == 'directive') {
-    directives[item.name] = pkg;
-  }
+	if (item.type == 'component') {
+		if (pkg.name) {
+			components[pkg.name] = pkg;
+		} else {
+			for (const n in pkg) {
+				components[n] = pkg[n];
+			}
+		}
+	} else if (item.type == 'method') {
+		methods[item.name] = pkg;
+	} else if (item.type == 'filter') {
+		filters[item.name] = pkg;
+	} else if (item.type == 'directive') {
+		directives[item.name] = pkg;
+	}
 });
 
 const install = function (Vue, opts = {}) {
-  if (install.installed) return;
+	if (install.installed) return;
 
-  if (opts.locale) {
-    Vue.config.lang = opts.locale;
-  }
+	if (opts.locale) {
+		Vue.config.lang = opts.locale;
+	}
 
-  if (opts.lang) locale(Vue.config.lang, opts.lang);
+	if (opts.lang) locale(Vue.config.lang, opts.lang);
 
-  for (let cptName in methods) {
-    if (Array.isArray(methods[cptName])) {
-      Vue.prototype['$' + cptName.toLowerCase()] = methods[cptName][0];
-      Vue.component(methods[cptName][1].name, methods[cptName][1]);
-    } else {
-      Vue.prototype['$' + cptName.toLowerCase()] = methods[cptName];
-    }
-  }
+	for (const cptName in methods) {
+		if (Array.isArray(methods[cptName])) {
+			Vue.prototype['$' + cptName.toLowerCase()] = methods[cptName][0];
+			Vue.component(methods[cptName][1].name, methods[cptName][1]);
+		} else {
+			Vue.prototype['$' + cptName.toLowerCase()] = methods[cptName];
+		}
+	}
 
-  for (let cptName in components) {
-    if (components[cptName] && components[cptName].name) {
-      Vue.component(components[cptName].name, components[cptName]);
-    }
-  }
+	for (const cptName in components) {
+		if (components[cptName] && components[cptName].name) {
+			Vue.component(components[cptName].name, components[cptName]);
+		}
+	}
 
-  for (let cptName in filters) {
-    if (filters[cptName] && filters[cptName].name) {
-      Vue.filter(cptName, filters[cptName]);
-    }
-  }
+	for (const cptName in filters) {
+		if (filters[cptName] && filters[cptName].name) {
+			Vue.filter(cptName, filters[cptName]);
+		}
+	}
 
-  for (let cptName in directives) {
-    if (directives[cptName] && directives[cptName].name) {
-      Vue.directive(directives[cptName].name, directives[cptName]);
-    }
-  }
+	for (const cptName in directives) {
+		if (directives[cptName] && directives[cptName].name) {
+			Vue.directive(directives[cptName].name, directives[cptName]);
+		}
+	}
 
-  Vue.use(Lazyload, {
-    lazyComponent: true,
-    loading: '//img12.360buyimg.com/imagetools/jfs/t1/73967/28/14561/916/5dc142e4E0666555b/bf33454553c6035e.png'
-  });
+	Vue.use(Lazyload, {
+		lazyComponent: true,
+		loading: '//img12.360buyimg.com/imagetools/jfs/t1/73967/28/14561/916/5dc142e4E0666555b/bf33454553c6035e.png',
+	});
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+	install(window.Vue);
 }
 
 export default {
-  version,
-  locale,
-  install,
-  Lazyload,
-  ...components,
-  ...filters,
-  ...directives,
-  ...methods
+	version,
+	locale,
+	install,
+	Lazyload,
+	...components,
+	...filters,
+	...directives,
+	...methods,
 };

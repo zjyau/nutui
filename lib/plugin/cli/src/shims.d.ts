@@ -4,12 +4,12 @@ declare module 'webpack-dev-server';
 declare module 'webpackbar';
 
 declare module NodeJS {
-    interface Global {
-        expect: any
-    }
-  }
+	interface Global {
+		expect: any;
+	}
+}
 
-declare module "*.json" {
-    const value: any;
-    export default value;
+declare module '*.json' {
+	const value: any;
+	export default value;
 }

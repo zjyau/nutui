@@ -1,6 +1,6 @@
-import { setNodeEnv } from "../util";
+import { setNodeEnv } from '../util';
 //import { compileTest } from '../compiler/test';
 export async function test() {
-    setNodeEnv('test');
-    //await compileTest();
+	setNodeEnv('test');
+	//await compileTest();
 }

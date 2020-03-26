@@ -14,20 +14,20 @@ import signale from 'signale';
 // });
 
 const options = {
-    config: {
-        displayTimestamp: true
-    },
-    // types: {
-    //     start: {
-    //         badge: '🚚',
-    //         color: 'green',
-    //         label: 'state'
-    //     },
-    //     info: {
-    //         badge: '**',
-    //         color: 'yellow',
-    //         label: 'info'
-    //     }
-    // }
+	config: {
+		displayTimestamp: true,
+	},
+	// types: {
+	//     start: {
+	//         badge: '🚚',
+	//         color: 'green',
+	//         label: 'state'
+	//     },
+	//     info: {
+	//         badge: '**',
+	//         color: 'yellow',
+	//         label: 'info'
+	//     }
+	// }
 };
 export default new signale.Signale(options);

@@ -1,3 +1,1 @@
-export async function commitLint() {
-    
-}
+export async function commitLint() {}

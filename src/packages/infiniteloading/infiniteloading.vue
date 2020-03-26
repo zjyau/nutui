@@ -1,157 +1,143 @@
 <template>
-    <div class="nut-infiniteloading" 
-        ref="scroller" 
-        @touchstart="touchStartHandle($event)" 
-        @touchmove="touchMoveHandle($event)"
-    >
-        <slot></slot>
-        <div class="load-more">
-            <div class="bottom-tips">
-                <template v-if="isLoading" >
-                   <i class="loading-hint"></i><span class="loading-txt">加载中...</span>
-                </template>
-                <span v-else-if="!hasMore" class="tips-txt">哎呀，这里是底部了啦</span>
-            </div>
-        </div>
-    </div>
+	<div class="nut-infiniteloading" ref="scroller" @touchstart="touchStartHandle($event)" @touchmove="touchMoveHandle($event)">
+		<slot />
+		<div class="load-more">
+			<div class="bottom-tips">
+				<template v-if="isLoading"> <i class="loading-hint" /><span class="loading-txt">加载中...</span> </template>
+				<span v-else-if="!hasMore" class="tips-txt">哎呀，这里是底部了啦</span>
+			</div>
+		</div>
+	</div>
 </template>
 <script>
 export default {
-    name:'nut-infiniteloading',
-    props: {
-        hasMore: {
-            type: Boolean,
-            default: true
-        },
-        isLoading: {
-            type: Boolean,
-            default: false
-        },
-        threshold: {
-            type: Number,
-            default: 200
-        },
-        useWindow: {
-            type: Boolean,
-            default: true
-        },
-        isShowMod: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data() {
-        return {
-            startX: 0,
-            startY: 0,
-            diffX: 0,
-            diffY: 0,
-            beforeScrollTop: 0
-        }
-    },
+	name: 'nut-infiniteloading',
+	props: {
+		hasMore: {
+			type: Boolean,
+			default: true,
+		},
+		isLoading: {
+			type: Boolean,
+			default: false,
+		},
+		threshold: {
+			type: Number,
+			default: 200,
+		},
+		useWindow: {
+			type: Boolean,
+			default: true,
+		},
+		isShowMod: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	data() {
+		return {
+			startX: 0,
+			startY: 0,
+			diffX: 0,
+			diffY: 0,
+			beforeScrollTop: 0,
+		};
+	},
 
-    mounted: function () {
-        this.scrollListener();
-    },
+	mounted() {
+		this.scrollListener();
+	},
 
-    methods: {
-        touchStartHandle(e) {
-            try {
-                this.startX = Number(e.changedTouches[0].pageX);
-                this.startY = Number(e.changedTouches[0].pageY);
-            } catch (e) {
-                console.log(e.message);
-            }
-        },
-        touchMoveHandle(e) {
-            let endX = Number(e.changedTouches[0].pageX);
-            let endY = Number(e.changedTouches[0].pageY);
-            this.diffX = endX - this.startX;
-            this.diffY = endY - this.startY;
-        },
+	activated() {
+		if (this.keepAlive) {
+			this.keepAlive = false;
+			this.scrollListener();
+		}
+	},
 
-        scrollListener() {
-            window.addEventListener('scroll', this.handleScroll, false);
-            window.addEventListener('resize', this.handleScroll, false);
-        },
+	deactivated() {
+		this.keepAlive = true;
+		window.removeEventListener('scroll', this.handleScroll, false);
+		window.removeEventListener('resize', this.handleScroll, false);
+	},
 
-        requestAniFrame() {
-            return (
-                window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                function(callback) {
-                    window.setTimeout(callback, 1000 / 60);
-                }
-            );
-        },
+	destroyed() {
+		window.removeEventListener('scroll', this.handleScroll, false);
+		window.removeEventListener('resize', this.handleScroll, false);
+	},
 
-        handleScroll() {
-            this.requestAniFrame()(() => {
-                if (!this.hasMore || !this.isScrollAtBottom() || this.isLoading || !this.isShowMod) {
-                    return false;
-                } else {
-                    this.$emit('loadmore');
-                }
-            })
-        },
+	methods: {
+		touchStartHandle(e) {
+			try {
+				this.startX = Number(e.changedTouches[0].pageX);
+				this.startY = Number(e.changedTouches[0].pageY);
+			} catch (e) {
+				console.log(e.message);
+			}
+		},
+		touchMoveHandle(e) {
+			const endX = Number(e.changedTouches[0].pageX);
+			const endY = Number(e.changedTouches[0].pageY);
+			this.diffX = endX - this.startX;
+			this.diffY = endY - this.startY;
+		},
 
-        calculateTopPosition(el) {
-            if (!el) {
-                return 0;
-            }
-            return el.offsetTop + this.calculateTopPosition(el.offsetParent);
-        },
+		scrollListener() {
+			window.addEventListener('scroll', this.handleScroll, false);
+			window.addEventListener('resize', this.handleScroll, false);
+		},
 
-        getWindowScrollTop() {
-            return window.pageYOffset !== undefined ?
-                window.pageYOffset :
-                (document.documentElement || document.body.parentNode || document.body)
-                .scrollTop;
-        },
+		requestAniFrame() {
+			return (
+				window.requestAnimationFrame ||
+				window.webkitRequestAnimationFrame ||
+				window.mozRequestAnimationFrame ||
+				function (callback) {
+					window.setTimeout(callback, 1000 / 60);
+				}
+			);
+		},
 
-        isScrollAtBottom() {
-            let offsetDistance;
-            
-            const windowScrollTop = this.getWindowScrollTop();
-            if (this.useWindow) {
-                offsetDistance =
-                    this.calculateTopPosition(this.$refs.scroller) +
-                    this.$refs.scroller.offsetHeight -
-                    windowScrollTop - window.innerHeight;
-            } else {
-                const {
-                    scrollHeight,
-                    clientHeight,
-                    scrollTop
-                } = this.$refs.scroller;
-                offsetDistance = scrollHeight - clientHeight - scrollTop;
-            }
-            
-            // 保证是往下滑动的
-            let beforeScrollTop = this.beforeScrollTop;
-            this.beforeScrollTop = windowScrollTop;
+		handleScroll() {
+			this.requestAniFrame()(() => {
+				if (!this.hasMore || !this.isScrollAtBottom() || this.isLoading || !this.isShowMod) {
+					return false;
+				}
+				this.$emit('loadmore');
+			});
+		},
 
-            return (offsetDistance <= this.threshold && windowScrollTop >= this.beforeScrollTop) ;
-        }
-    },
+		calculateTopPosition(el) {
+			if (!el) {
+				return 0;
+			}
+			return el.offsetTop + this.calculateTopPosition(el.offsetParent);
+		},
 
-    activated() {
-        if(this.keepAlive){
-            this.keepAlive = false;
-            this.scrollListener();
-        }
-    },
+		getWindowScrollTop() {
+			return window.pageYOffset !== undefined
+				? window.pageYOffset
+				: (document.documentElement || document.body.parentNode || document.body).scrollTop;
+		},
 
-    deactivated() {
-        this.keepAlive = true;
-        window.removeEventListener('scroll', this.handleScroll, false);
-        window.removeEventListener('resize', this.handleScroll, false);
-    },
+		isScrollAtBottom() {
+			let offsetDistance;
 
-    destroyed() {
-        window.removeEventListener('scroll', this.handleScroll, false);
-        window.removeEventListener('resize', this.handleScroll, false);
-    }
-}
+			const windowScrollTop = this.getWindowScrollTop();
+			if (this.useWindow) {
+				offsetDistance =
+					this.calculateTopPosition(this.$refs.scroller) + this.$refs.scroller.offsetHeight - windowScrollTop - window.innerHeight;
+			} else {
+				const { scrollHeight, clientHeight, scrollTop } = this.$refs.scroller;
+				offsetDistance = scrollHeight - clientHeight - scrollTop;
+			}
+
+			// 保证是往下滑动的
+			const { beforeScrollTop } = this;
+			this.beforeScrollTop = windowScrollTop;
+
+			return offsetDistance <= this.threshold && windowScrollTop >= this.beforeScrollTop;
+		},
+	},
+};
 </script>
