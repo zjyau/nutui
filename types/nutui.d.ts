@@ -1,19 +1,19 @@
-import Vue  from 'vue';
+import Vue from 'vue';
 
 declare class UIComponent extends Vue {
-    static install (vue: typeof Vue): void
+	static install(vue: typeof Vue): void;
 }
 
 export interface InstallationOptions {
-    locale?: any
-    lang?: any
+	locale?: any;
+	lang?: any;
 }
 
-export const version: string
+export const version: string;
 
-export const locale: (l:any) => void
+export const locale: (l: any) => void;
 
-export function install (vue: typeof Vue, options: InstallationOptions): void
+export function install(vue: typeof Vue, options: InstallationOptions): void;
 
 export declare class ActionSheet extends UIComponent {}
 export declare class Badge extends UIComponent {}

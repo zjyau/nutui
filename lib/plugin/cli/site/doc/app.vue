@@ -69,7 +69,7 @@
 		</div>
 	</div>
 </template>
-<script>
+<script lang="ts">
 import './asset/css/common.scss';
 import './asset/css/style-blue.scss';
 import { packages } from '@/config.json';
@@ -77,7 +77,11 @@ import search from './search.vue';
 import leftNav from './info.vue';
 import { version } from '@/../package.json';
 export default {
-	name: 'App',
+	name: 'app',
+	components: {
+		search,
+		leftNav,
+	},
 	data() {
 		return {
 			packages,
@@ -100,9 +104,14 @@ export default {
 		//  },
 		$route: 'fetchData',
 	},
-	components: {
-		search,
-		leftNav,
+	created() {
+		let that = this;
+		let { name } = this.$route;
+		for (let i = 0, item; (item = packages[i]); i++) {
+			if (name == item.name) {
+				this.showPhone = true;
+			}
+		}
 	},
 	methods: {
 		openwindow(val) {
@@ -111,7 +120,7 @@ export default {
 			}
 		},
 		choseList(e) {
-			let searchIndex = this.searchIndex;
+			let { searchIndex } = this;
 			if (e.keyCode == 40) {
 				searchIndex++;
 			}
@@ -121,9 +130,9 @@ export default {
 			if (searchIndex < 0) {
 				searchIndex = 0;
 			}
-			let searchList = this.searchList;
+			let { searchList } = this;
 			if (searchList.length > 0) {
-				let chnName = searchList[searchIndex].chnName;
+				let { chnName } = searchList[searchIndex];
 				if (chnName) {
 					this.searchCurName = chnName;
 					this.searchIndex = searchIndex;
@@ -161,7 +170,7 @@ export default {
 		search(e) {
 			let val = e.target.value.toLowerCase();
 			if (val) {
-				let packages = this.packages;
+				let { packages } = this;
 				let list = [];
 				for (let i = 0, item; (item = packages[i]); i++) {
 					let cn = item.chnName.toLowerCase();
@@ -179,15 +188,6 @@ export default {
 			this.searchCurName = '';
 			this.searchIndex = 0;
 		},
-	},
-	created() {
-		let that = this;
-		let name = this.$route.name;
-		for (let i = 0, item; (item = packages[i]); i++) {
-			if (name == item.name) {
-				this.showPhone = true;
-			}
-		}
 	},
 };
 </script>

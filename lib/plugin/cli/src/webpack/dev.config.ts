@@ -10,8 +10,8 @@ const MarkDownToVue = require('@nutui/markdown-to-vue');
 export const devConfig: Webpack.Configuration = merge(baseConfig, {
 	mode: 'development',
 	entry: {
-		'nutui-mobile': ROOT_CLI_PATH('site/demo/app.js'),
-		'nutui-doc': ROOT_CLI_PATH('site/doc/app.js'),
+		'nutui-mobile': ROOT_CLI_PATH('site/demo/app.ts'),
+		'nutui-doc': ROOT_CLI_PATH('site/doc/app.ts'),
 	},
 	output: {
 		filename: '[name].bundle.js',

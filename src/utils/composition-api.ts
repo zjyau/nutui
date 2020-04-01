@@ -1,5 +1,4 @@
 import {
-	createComponent,
 	defineComponent,
 	ref,
 	reactive,
@@ -19,8 +18,6 @@ import {
 	onBeforeUpdate,
 	onErrorCaptured,
 } from '@vue/composition-api';
-
-export const nCreateComponent = createComponent;
 
 export const nDefineComponent = defineComponent;
 
