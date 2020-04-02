@@ -51,24 +51,19 @@ export const baseConfig: Webpack.Configuration = {
 				],
 			},
 			{
-				test: /\.js$/,
-				include: [ROOT_PACKAGE_PATH('src')],
-				use: ['cache-loader', 'babel-loader'],
-			},
-			{
-				test: /\.tsx?$/,
-				exclude: /node_modules/,
+				test: /\.js|tsx|ts$/,
 				include: [ROOT_PACKAGE_PATH('src')],
 				use: [
+					'cache-loader',
 					'babel-loader',
 					{
 						loader: 'ts-loader',
 						options: {
 							appendTsSuffixTo: [/\.vue$/],
-							appendTsxSuffixTo: [/\.vue$/]
-						}
-					}
-				]
+							appendTsxSuffixTo: [/\.vue$/],
+						},
+					},
+				],
 			},
 			{
 				test: /\.(png|jpe?g|gif|webp)$/,
