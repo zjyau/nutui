@@ -1,4 +1,5 @@
 import {
+	createComponent,
 	defineComponent,
 	ref,
 	reactive,
@@ -19,38 +20,59 @@ import {
 	onErrorCaptured,
 } from '@vue/composition-api';
 
-export const nDefineComponent = defineComponent;
+export {
+	createComponent,
+	defineComponent,
+	ref,
+	reactive,
+	watch,
+	onMounted,
+	onUpdated,
+	onUnmounted,
+	computed,
+	isRef,
+	toRefs,
+	provide,
+	inject,
+	onActivated,
+	onDeactivated,
+	onBeforeMount,
+	onBeforeUnmount,
+	onBeforeUpdate,
+	onErrorCaptured,
+};
+// export const nDefineComponent = defineComponent;
 
-export const nRef = ref;
+// export const nRef = ref;
 
-export const nReactive = reactive;
+// export const nReactive = reactive;
 
-export const nWatch = watch;
+// export const nWatch = watch;
 
-export const nComputed = computed;
+// export const nComputed = computed;
 
-export const nIsRef = isRef;
+// export const nIsRef = isRef;
 
-export const nToRefs = toRefs;
+// export const nToRefs = toRefs;
 
-export const nProvide = provide;
+// export const nProvide = provide;
 
-export const nInject = inject;
+// export const nInject = inject;
 
-export const nOnMounted = onMounted;
+// export const nOnMounted = onMounted;
 
-export const nOnUpdated = onUpdated;
+// export const nOnUpdated = onUpdated;
 
-export const nOnUnmounted = onUnmounted;
+// export const nOnUnmounted = onUnmounted;
 
-export const nOnActivated = onActivated;
+// export const nOnActivated = onActivated;
 
-export const nOnDeactivated = onDeactivated;
+// export const nOnDeactivated = onDeactivated;
 
-export const nOnBeforeMount = onBeforeMount;
+// export const nOnBeforeMount = onBeforeMount;
 
-export const nOnBeforeUnmount = onBeforeUnmount;
+// export const nOnBeforeUnmount = onBeforeUnmount;
 
-export const nOnBeforeUpdate = onBeforeUpdate;
+// export const nOnBeforeUpdate = onBeforeUpdate;
 
-export const nOnErrorCaptured = onErrorCaptured;
+// export const nOnErrorCaptured = onErrorCaptured;

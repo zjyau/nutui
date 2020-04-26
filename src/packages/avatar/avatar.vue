@@ -1,10 +1,13 @@
 <template>
-	<div :style="styles" :class="['nut-avatar', 'avatar-' + size, 'avatar-' + shape]" @click="activeAvatar">
-		<i class="icon" :style="iconStyles" />
-		<span class="text"><slot /></span>
+	<div :style="styles" :class="['nut-avatar', 'avatar-' + size, 'avatar-' + shape]" @click="activeavatar">
+		<i class="icon" :style="iconStyles"></i>
+		<span class="text"><slot></slot></span>
 	</div>
 </template>
-<script>
+
+<script lang="ts">
+import { computed } from '@vue/composition-api';
+
 export default {
 	name: 'nut-avatar',
 	props: {
@@ -29,27 +32,31 @@ export default {
 			type: String,
 			default: '',
 		},
+		activeAvatar: {
+			type: Function,
+		},
 	},
-	data() {
-		return {};
-	},
-	computed: {
-		styles() {
+	setup(props: any) {
+		// 返回只读属性，修改会报警
+		const styles = computed(() => {
 			return {
-				background: this.bgColor + ' url(' + this.bgImage + ')' + 'no-repeat',
+				background: props.bgColor + ' url(' + props.bgImage + ')' + 'no-repeat',
 				backgroundSize: '100%',
 			};
-		},
-		iconStyles() {
+		});
+		const iconStyles = computed(() => {
 			return {
-				backgroundImage: 'url(' + this.bgIcon + ')',
+				backgroundImage: 'url(' + props.bgIcon + ')',
 			};
-		},
-	},
-	methods: {
-		activeAvatar() {
-			this.$emit('activeAvatar');
-		},
+		});
+		function activeavatar() {
+			typeof props.activeAvatar === 'function' && (props as any).activeAvatar();
+		}
+		return {
+			styles,
+			iconStyles,
+			activeavatar,
+		};
 	},
 };
 </script>
