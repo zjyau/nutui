@@ -22,11 +22,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    label:
-    {
-      type: String,
-      default: ""
     }
   },
   data() {
@@ -52,7 +47,7 @@ export default {
       }
       this.isAnimating = true;
       setTimeout(() => {
-        this.$emit("change", this.isActive, this.label);
+        this.$emit("change", this.isActive);
         this.$emit("update:active", this.isActive);
         this.isAnimating = false;
       }, 300);
